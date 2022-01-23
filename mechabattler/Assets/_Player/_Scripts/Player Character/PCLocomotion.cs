@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCMove : MonoBehaviour
+public class PCLocomotion : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class PCMove : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void PlayerMove()
+    {
+
     }
 }
