@@ -472,7 +472,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.6
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -564,7 +564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacter: {fileID: 11400000, guid: 43bb6a43582fc0948a98a42a63634505, type: 2}
-  controls: {fileID: 0}
 --- !u!114 &2134870010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +621,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fe92a488-3b1d-4119-ae2f-78bd33458304
     m_ActionName: Gameplay/Aim[/Mouse/position,/DualShock4GamepadHID/rightStick,/SwitchProControllerHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2134870012}
+        m_TargetAssemblyTypeName: PlayerInputInterface, Assembly-CSharp
+        m_MethodName: GetFireInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7ff66240-29eb-4abc-a64b-165d794f13a2
+    m_ActionName: Gameplay/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -654,4 +669,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
-  aimInput: {x: 0, y: 0}
+  FireButton: 0

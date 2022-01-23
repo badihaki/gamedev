@@ -10,7 +10,7 @@ using UnityEngine;
 public class PlayerObject : MonoBehaviour
 {
     public PlayerCharacter playerCharacter;
-    public PlayerInputInterface controls;
+    public PlayerInputInterface Controls { get; private set; }
 
     /*
      * First order of business is to detect input
@@ -22,7 +22,7 @@ public class PlayerObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controls = GetComponent<PlayerInputInterface>();
+        Controls = GetComponent<PlayerInputInterface>();
 
         // below we are going to initialize gameplay
         InitGameplay();
@@ -37,8 +37,14 @@ public class PlayerObject : MonoBehaviour
 
     public void InitGameplay()
     {
+        // create the player character obj
         Transform startingpoint = GameObject.Find("Player Start").transform; // find the starting point for the player
         GameObject pc = Instantiate(playerCharacter.playerCharObj, startingpoint.position, Quaternion.identity);
         pc.GetComponent<PCProperties>().player = this;
+
+        // lets initialize their gameplay, then state machine
+        pc.GetComponent<PCProperties>().InitGameplay(this);
+        pc.GetComponent<PCProperties>().InitStateMachine();
+
     }
 }

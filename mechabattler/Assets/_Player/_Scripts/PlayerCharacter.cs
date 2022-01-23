@@ -7,4 +7,5 @@ public class PlayerCharacter : ScriptableObject
 {
     public GameObject playerCharObj;
     public int health;
+    public int speed;
 }
