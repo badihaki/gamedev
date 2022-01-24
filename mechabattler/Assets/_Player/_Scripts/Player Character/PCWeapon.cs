@@ -61,7 +61,7 @@ public class PCWeapon : MonoBehaviour
 
     public void FireWeapon()
     {
-        print("shots fired");
+        // print("shots fired");
         if (shotTimer <= 0)
         {
             shotTimer = fireRate;

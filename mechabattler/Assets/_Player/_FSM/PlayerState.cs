@@ -34,6 +34,9 @@ public class PlayerState
 
     private string animBoolName;
 
+    protected bool isGrounded;
+
+
     #region Hit Attributes
     protected bool hurt;
     protected bool hitNorm;
@@ -75,7 +78,14 @@ public class PlayerState
          * as well as changing variables
          */
 
-        TransitionConditions();
+        // make sure grounded is hooked up all the time
+        // FOREVER CHECK FOR GROUNDED WHY ARENT WE CHECKING FOR GROUNDED!?
+        isGrounded = player.Grounded();
+        // if we aren't already exiting the state, check for transition conditions
+        if (!isExitingState)
+        {
+            TransitionConditions();
+        }
 
 
         /*

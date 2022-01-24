@@ -7,5 +7,7 @@ public class PlayerCharacter : ScriptableObject
 {
     public GameObject playerCharObj;
     public int health;
-    public int speed;
+    public float speed;
+    public int maxJumps;
+    public float jumpForce;
 }

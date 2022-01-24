@@ -289,11 +289,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5700710173115250320
 CapsuleCollider2D:
@@ -321,7 +321,7 @@ Animator:
   m_GameObject: {fileID: 8637188495065706876}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec88f2098fbfa7449bcd09dc28783960, type: 2}
+  m_Controller: {fileID: 9100000, guid: e9edd7f3f6b070d4b961b7f6767046ea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -343,6 +343,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  extraHeightDistance: 0
 --- !u!114 &8637188495065706864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,3 +359,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9985be863837146b05346594540209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpCount: 1

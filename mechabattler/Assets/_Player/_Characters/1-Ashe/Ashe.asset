@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b7716a587b1064b83bdc0b677c9350, type: 3}
-  m_Name: Proto
+  m_Name: Ashe
   m_EditorClassIdentifier: 
-  playerCharObj: {fileID: 8637188495065706876, guid: c16d960f773489c47acb4c5fbc92e0a2, type: 3}
-  health: 10
-  speed: 5
+  playerCharObj: {fileID: 2262767712904702605, guid: 67f02fe9233aa3a449fec2c578feabd1, type: 3}
+  health: 100
+  speed: 8.2
   maxJumps: 1
-  jumpForce: 5.73
+  jumpForce: 0.001

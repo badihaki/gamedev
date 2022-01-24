@@ -11,7 +11,7 @@ public class PlayerGroundedState : PlayerState
     protected int xInput;
     protected int yInput;
     protected bool attackButton;
-    protected bool isGrounded;
+    protected bool jumpButton;
 
     public override void LogicUpdate()
     {
@@ -19,6 +19,7 @@ public class PlayerGroundedState : PlayerState
         xInput = player.player.Controls.XInput;
         yInput = player.player.Controls.YInput;
         attackButton = player.player.Controls.FireButton;
+        jumpButton = player.player.Controls.JumpButton;
 
         // follow the mouse aim
         player.WeaponController.FollowAim();
@@ -26,6 +27,31 @@ public class PlayerGroundedState : PlayerState
         if (attackButton == true)
         {
             player.WeaponController.FireWeapon();
+        }
+    }
+
+    public override void TransitionConditions()
+    {
+        base.TransitionConditions();
+
+        if (isGrounded)
+        {
+            // jump from ANY grounded state at ANY time
+            if (jumpButton)
+            {
+                player.player.Controls.UseJump();
+                if (player.MoveController.jumpCount > 0)
+                {
+                    // can jump, will jump
+                    stateMachine.ChangeState(player.JumpState);
+                }
+            }
+        }
+        else if (!isGrounded)
+        {
+            // transition to freefall
+            player.FreeFallState.StartCoyoteTime();
+            stateMachine.ChangeState(player.FreeFallState);
         }
     }
 }

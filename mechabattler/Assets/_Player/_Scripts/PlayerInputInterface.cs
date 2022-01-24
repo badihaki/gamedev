@@ -44,4 +44,23 @@ public class PlayerInputInterface : MonoBehaviour
         }
     }
     #endregion
+
+    #region Jumping
+    public bool JumpButton;
+    public void GetJumpInput(InputAction.CallbackContext input)
+    {
+        if (input.started)
+        {
+            JumpButton = true;
+        }
+        else if (input.canceled)
+        {
+            JumpButton = false;
+        }
+    }
+    public void UseJump()
+    {
+        JumpButton = false;
+    }
+    #endregion
 }
