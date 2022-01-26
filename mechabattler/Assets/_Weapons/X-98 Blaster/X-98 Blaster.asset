@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4af6132eb854614496aa78b4d7fcdcc, type: 3}
+  m_Name: X-98 Blaster
+  m_EditorClassIdentifier: 
+  weaponObj: {fileID: 4266634432715530854, guid: a05375ae570cca74487f1e88f8a2fc8e, type: 3}
+  weaponPickup: {fileID: 2494228541127937036, guid: 7d2bebc3284dc6c4b8dd521b7c8e4b95, type: 3}
+  projectileObj: {fileID: 4116193383408548887, guid: 5ba5043228baf9445ad10c04e0fd5501, type: 3}
+  fireRate: 0.25
+  projSpeed: 25
+  projDamage: 5

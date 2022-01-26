@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float speed;
+    float speed;
+    int damage;
     public float lifetime;
     Rigidbody2D controller;
 
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    public void Init(float setSpeed, int setDmg)
+    {
         controller = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifetime);
+        speed = setSpeed;
+        damage = setDmg;
     }
 
     // Update is called once per frame

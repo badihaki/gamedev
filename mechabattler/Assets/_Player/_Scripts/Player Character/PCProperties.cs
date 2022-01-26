@@ -14,6 +14,7 @@ public class PCProperties : MonoBehaviour
     public Animator Anim { get; private set; }
     public PCLocomotion MoveController { get; private set; } // movement script for moving and jumping, dawg
     public PCWeapon WeaponController { get; private set; }
+    public PCInteract InteractionController { get; private set; }
     private CapsuleCollider2D boundary;
     #endregion
 
@@ -50,10 +51,12 @@ public class PCProperties : MonoBehaviour
         Anim = GetComponent<Animator>();
         MoveController = GetComponent<PCLocomotion>();
         WeaponController = GetComponentInChildren<PCWeapon>();
+        InteractionController = GetComponentInChildren<PCInteract>();
         boundary = GetComponent<CapsuleCollider2D>();
 
         // lets start state machine after making sure components are good
         InitStateMachine();
+        WeaponController.InitWeapon();
     }
     public void InitStateMachine()
     {

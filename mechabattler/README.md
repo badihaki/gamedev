@@ -1,6 +1,6 @@
 TODO:
 Character:
-  FIX JUMPING
+  * FIX JUMPING * Most Important!!
   Make system for holding weapons
   PlayerWeapon modifications:
 	Make currentHeldAmmo - an int[] detailing how much ammo of each type the player holds
@@ -8,23 +8,16 @@ Character:
 		shells
 		warheads
 		plasma
-  Create Weapon Scriptable Obj
-	Will allow easy ref to weapons' diff values
-	Include values:
-		inGameObj - The actual object that spawns into the player's hands
-		** projectilePrefab - the actual projectile that spawns when shooting
-		** projectileSpeed - self explanatory
-		projectileDamage - self explanatory
-		** fireRate - self explanatory
-		clipSize - amount of rounds until reload
-		maxAmmo - self explanatory
 		('**' designates values already in PlayerWeapon that just need to be moved
-	Create Weapon Gameobj Prefabs
+	Finish Weapon Scriptable Object and Weapon Object
 		Include values:
-			currentAmmo - how much ammo in the clip, can't go past clipSize
+			currentAmmo - how much ammo in the clip, can't go past clipSize ** Weapon Object
+			maxAmmo - self explanatory
+			clipSize - amount of rounds until reload
 			ammoType - determines which ammo to take out of
-		Include reload function
-			Adds 'clipSize' of 'ammoType' to 'currentAmmo'
+			reloadTime - Amount of time it takes to reload a gun
+				Include reload function
+					Adds 'clipSize' of 'ammoType' to 'currentAmmo'
 	
   Ride vehicle
   Make all colliders their own Child Gameobj

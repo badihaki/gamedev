@@ -10,15 +10,13 @@ public class PCWeapon : MonoBehaviour
     [SerializeField]
     float aimOffset;
     [SerializeField]
-    Transform bulletOrigin;
+    private WeaponScriptableObj equippedWeapon;
     [SerializeField]
+    private Transform shotPoint;
+    [SerializeField]
+    private GameObject weaponObj;
     public float shotTimer { get; private set; }
     public float shotTimerDemo; // delete this if ManageFireRate is working
-    // we gonna have to add the stuff below into the 'Weapon' scriptable obj
-    [SerializeField]
-    GameObject projectile;
-    [SerializeField]
-    float fireRate;
 
     // Start is called before the first frame update
     void Start()
@@ -58,15 +56,41 @@ public class PCWeapon : MonoBehaviour
         // Apply desired rotation of Z
         transform.rotation = Quaternion.Euler(0f, 0f, rotateOnZ + aimOffset);
     }
+    public void InitWeapon()
+    {
+        weaponObj = Instantiate(equippedWeapon.weaponObj, transform.position, transform.rotation, transform);
+        shotPoint = weaponObj.transform.Find("Spot");
+
+    }
+    public void GetWeapon(WeaponScriptableObj newWeapon)
+    {
+        // spawn a version of the equipped weapon and toss it out randomly
+        // make equipped weapon = null
+        if (weaponObj != null)
+        {
+            print("destroyed equipped weapon " + weaponObj.name);
+            Destroy(weaponObj);
+        }
+        // equip new weapon
+        print("getting new weapon: " + newWeapon);
+        GameObject throwawayWeapon = Instantiate(equippedWeapon.weaponPickup, new Vector2(transform.position.x, transform.position.y + 2), Quaternion.identity);
+        Vector2 randomThrowVector = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(0f, 5f));
+        throwawayWeapon.GetComponent<Rigidbody2D>().AddForce(randomThrowVector, ForceMode2D.Impulse);
+        equippedWeapon = newWeapon;
+        weaponObj = Instantiate(equippedWeapon.weaponObj, transform.position, transform.rotation, transform);
+        shotPoint = weaponObj.transform.Find("Spot");
+    }
 
     public void FireWeapon()
     {
         // print("shots fired");
         if (shotTimer <= 0)
         {
-            shotTimer = fireRate;
-            Instantiate(projectile, bulletOrigin.position, transform.rotation);
+            shotTimer = equippedWeapon.fireRate;
+            GameObject proj = Instantiate(equippedWeapon.projectileObj, shotPoint.position, shotPoint.rotation);
+            proj.GetComponent<BulletScript>().Init(equippedWeapon.projSpeed, equippedWeapon.projDamage);
         }
         
     }
+
 }

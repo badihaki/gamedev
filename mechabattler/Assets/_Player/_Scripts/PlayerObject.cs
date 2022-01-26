@@ -44,7 +44,5 @@ public class PlayerObject : MonoBehaviour
 
         // lets initialize their gameplay, then state machine
         pc.GetComponent<PCProperties>().InitGameplay(this);
-        pc.GetComponent<PCProperties>().InitStateMachine();
-
     }
 }

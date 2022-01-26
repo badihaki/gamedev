@@ -12,6 +12,7 @@ public class PlayerGroundedState : PlayerState
     protected int yInput;
     protected bool attackButton;
     protected bool jumpButton;
+    protected bool interactButton;
 
     public override void LogicUpdate()
     {
@@ -20,6 +21,7 @@ public class PlayerGroundedState : PlayerState
         yInput = player.player.Controls.YInput;
         attackButton = player.player.Controls.FireButton;
         jumpButton = player.player.Controls.JumpButton;
+        interactButton = player.player.Controls.InteractButton;
 
         // follow the mouse aim
         player.WeaponController.FollowAim();
@@ -27,6 +29,10 @@ public class PlayerGroundedState : PlayerState
         if (attackButton == true)
         {
             player.WeaponController.FireWeapon();
+        }
+        if (interactButton == true)
+        {
+            player.InteractionController.InteractWith();
         }
     }
 

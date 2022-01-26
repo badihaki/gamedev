@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ashe
   m_EditorClassIdentifier: 
   playerCharObj: {fileID: 2262767712904702605, guid: 67f02fe9233aa3a449fec2c578feabd1, type: 3}
-  health: 100
+  health: 25
   speed: 8.2
   maxJumps: 1
-  jumpForce: 0.001
+  jumpForce: 5

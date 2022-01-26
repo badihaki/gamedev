@@ -58,9 +58,22 @@ public class PlayerInputInterface : MonoBehaviour
             JumpButton = false;
         }
     }
-    public void UseJump()
+    public void UseJump() => JumpButton = false;
+    #endregion
+
+    #region Interaction Button
+    public bool InteractButton { get; private set; }
+    public void GetInteractInput(InputAction.CallbackContext input)
     {
-        JumpButton = false;
+        if (input.started)
+        {
+            InteractButton = true;
+        }
+        else if (input.canceled)
+        {
+            InteractButton = false;
+        }
     }
+    public void UseInteractButton() => InteractButton = false;
     #endregion
 }
