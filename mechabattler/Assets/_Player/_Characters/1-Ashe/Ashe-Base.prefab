@@ -185,8 +185,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2262767714493019446}
   - component: {fileID: 2262767714493019440}
-  - component: {fileID: 2262767714493019447}
   - component: {fileID: 4837406466766542580}
+  - component: {fileID: 2262767714493019447}
   - component: {fileID: 7883496152340675674}
   m_Layer: 0
   m_Name: Hands
@@ -261,23 +261,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2262767714493019447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2262767714493019445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9566e1d45dc83aa49841fadf5c70c957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimOffset: 0
-  equippedWeapon: {fileID: 11400000, guid: 72d1e7903d2f3384b95c619d7be344fd, type: 2}
-  shotPoint: {fileID: 0}
-  weaponObj: {fileID: 0}
-  shotTimerDemo: 0
 --- !u!58 &4837406466766542580
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -294,6 +277,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.75
+--- !u!114 &2262767714493019447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262767714493019445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9566e1d45dc83aa49841fadf5c70c957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimOffset: 0
+  equippedWeapon: {fileID: 0}
+  shotPoint: {fileID: 0}
+  weaponObj: {fileID: 0}
+  shotTimerDemo: 0
 --- !u!114 &7883496152340675674
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class PlayerFreefallLandingState : PlayerGroundedState
          * When entering this state, we spawn a plume of smoke
          * we also must reset our jump count
          */
-        player.MoveController.MovePlayer(0);
+        player.MoveController.MovePlayerX(0);
         player.MoveController.ResetJumpCount();
     }
 

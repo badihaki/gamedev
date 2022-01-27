@@ -1,7 +1,5 @@
 TODO:
 Character:
-  * FIX JUMPING * Most Important!!
-  Make system for holding weapons
   PlayerWeapon modifications:
 	Make currentHeldAmmo - an int[] detailing how much ammo of each type the player holds
 		bullets

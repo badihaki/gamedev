@@ -9,8 +9,7 @@ public class PCWeapon : MonoBehaviour
     Vector2 aim;
     [SerializeField]
     float aimOffset;
-    [SerializeField]
-    private WeaponScriptableObj equippedWeapon;
+    public WeaponScriptableObj equippedWeapon { get; private set; }
     [SerializeField]
     private Transform shotPoint;
     [SerializeField]
@@ -73,9 +72,12 @@ public class PCWeapon : MonoBehaviour
         }
         // equip new weapon
         print("getting new weapon: " + newWeapon);
-        GameObject throwawayWeapon = Instantiate(equippedWeapon.weaponPickup, new Vector2(transform.position.x, transform.position.y + 2), Quaternion.identity);
-        Vector2 randomThrowVector = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(0f, 5f));
-        throwawayWeapon.GetComponent<Rigidbody2D>().AddForce(randomThrowVector, ForceMode2D.Impulse);
+        if (equippedWeapon != null)
+        {
+            GameObject throwawayWeapon = Instantiate(equippedWeapon.weaponPickup, new Vector2(transform.position.x, transform.position.y + 2), Quaternion.identity);
+            Vector2 randomThrowVector = new Vector2(UnityEngine.Random.Range(-5f, 5f), UnityEngine.Random.Range(0f, 5f));
+            throwawayWeapon.GetComponent<Rigidbody2D>().AddForce(randomThrowVector, ForceMode2D.Impulse);
+        }        
         equippedWeapon = newWeapon;
         weaponObj = Instantiate(equippedWeapon.weaponObj, transform.position, transform.rotation, transform);
         shotPoint = weaponObj.transform.Find("Spot");

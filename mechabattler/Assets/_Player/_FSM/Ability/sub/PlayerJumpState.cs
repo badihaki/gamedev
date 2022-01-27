@@ -13,7 +13,6 @@ public class PlayerJumpState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("jumping!");
         player.MoveController.Jump();
     }
 
@@ -37,7 +36,7 @@ public class PlayerJumpState : PlayerAbilityState
         base.PhysicsUpdate();
         
         // make sure we can move whilest jumping
-        player.MoveController.MovePlayer(xInput);
+        player.MoveController.MovePlayerX(xInput);
     }
 
     public override void TransitionConditions()

@@ -12,11 +12,13 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.LogicUpdate();
 
-        player.MoveController.MovePlayer(xInput);
+        player.MoveController.MovePlayerX(xInput);
     }
 
     public override void TransitionConditions()
     {
+        base.TransitionConditions();
+
         if (xInput == 0)
         {
             stateMachine.ChangeState(player.IdleState);

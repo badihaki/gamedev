@@ -20,13 +20,19 @@ public class PCLocomotion : MonoBehaviour
         
     }
 
+    private void ApplyPhysics(float newX, float newY)
+    {
+        physicsController.velocity = new Vector2(newX, newY);
+    }
+
     /// <summary>
     /// Move the player towards a specific direction
     /// </summary>
     /// <param name="direction"></param>
-    public void MovePlayer(int direction)
+    public void MovePlayerX(int direction)
     {
-        physicsController.velocity = new Vector2(direction, physicsController.velocity.y) * player.playerCharacter.speed;
+        Vector2 desiredMove = new Vector2(direction, physicsController.velocity.y) * player.playerCharacter.speed;
+        ApplyPhysics(desiredMove.x, physicsController.velocity.y);
     }
 
     #region Jumping
@@ -37,12 +43,14 @@ public class PCLocomotion : MonoBehaviour
         // physicsController.velocity = new Vector2(physicsController.velocity.x, 1) * player.playerCharacter.jumpForce;
         // physicsController.velocity = Vector2.up * player.playerCharacter.jumpForce;
         // physicsController.AddForce(Vector2.up + jumpDir);
+        //physicsController.velocity = jumpDir;
         if (jumpCount > 0)
         {
             // use a jump
             jumpCount--;
             Vector2 jumpDir = new Vector2(physicsController.velocity.x, player.playerCharacter.jumpForce); // this code makes me jump
-            physicsController.velocity = jumpDir;
+            print("calling Jump() with vector2 " + jumpDir);
+            ApplyPhysics(physicsController.velocity.x, jumpDir.y);
         }
     }
     public void SetCoyoteJumpCount()

@@ -56,7 +56,10 @@ public class PCProperties : MonoBehaviour
 
         // lets start state machine after making sure components are good
         InitStateMachine();
-        WeaponController.InitWeapon();
+        if (WeaponController.equippedWeapon != null)
+        {
+            WeaponController.InitWeapon();
+        }
     }
     public void InitStateMachine()
     {

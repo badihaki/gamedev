@@ -14,7 +14,7 @@ public class PlayerFreeFallState : PlayerInAirState
 
         // make sure we can go left or right while freefalling
         // air control is important
-        player.MoveController.MovePlayer(xInput);
+        player.MoveController.MovePlayerX(xInput);
 
         // always check for Coyote Time
         // It checks both the boolean and the time

@@ -16,4 +16,4 @@ MonoBehaviour:
   health: 10
   speed: 5
   maxJumps: 1
-  jumpForce: 5.73
+  jumpForce: 2
