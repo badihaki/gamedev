@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PCLocomotion))]
+
 /// <summary>
 /// The purpose of this script is to read the Player Obj Script for it's various variables
 /// and link up to the player character's various controllers

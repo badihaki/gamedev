@@ -454,8 +454,8 @@ Camera:
   m_GameObject: {fileID: 1687245109}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4568401, g: 0.44705883, b: 0.5294118, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88968a9caa9ee8044b97fa55276c8dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 11400000, guid: 43bb6a43582fc0948a98a42a63634505, type: 2}
+  playerCharacter: {fileID: 11400000, guid: f65b8bafdbb82804b8c577eb54788b24, type: 2}
 --- !u!114 &2134870010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 10a2fc51-f210-4085-8cfc-a8120eb0e9a5
     m_ActionName: Gameplay/Interact[/Keyboard/f]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b7716a587b1064b83bdc0b677c9350, type: 3}
-  m_Name: Ashe
+  m_Name: Pixie
   m_EditorClassIdentifier: 
-  playerCharObj: {fileID: 2262767712904702605, guid: 67f02fe9233aa3a449fec2c578feabd1, type: 3}
+  playerCharObj: {fileID: 3324465400163468876, guid: b44d9f526d367214298c39d713b3fa7c, type: 3}
   health: 25
-  speed: 8.2
-  maxJumps: 1
-  jumpForce: 12
+  speed: 6
+  maxJumps: 2
+  jumpForce: 7

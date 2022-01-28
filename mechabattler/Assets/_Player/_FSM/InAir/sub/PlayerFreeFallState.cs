@@ -53,13 +53,14 @@ public class PlayerFreeFallState : PlayerInAirState
     {
         if (coyoteTime == true && Time.time > startTime + 0.20f) // coyote time is set here, its the start time + float
         {
-            player.MoveController.SetCoyoteJumpCount();
+            player.MoveController.ZeroJumpCount();
             coyoteTime = false;
             Debug.LogWarning("coyote time...disengaged");
         }
     }
     public void StartCoyoteTime()
     {
+        player.MoveController.SetCoyoteJumpCount();
         coyoteTime = true;
         Debug.LogWarning("coyote time engaging");
     }

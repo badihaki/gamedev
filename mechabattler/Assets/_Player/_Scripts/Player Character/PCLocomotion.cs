@@ -62,6 +62,10 @@ public class PCLocomotion : MonoBehaviour
             jumpCount = 1;
         }
     }
+    public void ZeroJumpCount()
+    {
+        jumpCount = 0;
+    }
     public void ResetJumpCount()
     {
         jumpCount = player.playerCharacter.maxJumps;
