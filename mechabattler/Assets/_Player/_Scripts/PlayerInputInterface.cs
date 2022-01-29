@@ -45,6 +45,21 @@ public class PlayerInputInterface : MonoBehaviour
     }
     #endregion
 
+    #region Tethering
+    public bool TetherButton { get; private set; }
+    public void GetTetherInput(InputAction.CallbackContext input)
+    {
+        if (input.performed)
+        {
+            TetherButton = true;
+        }
+        else if (input.canceled)
+        {
+            TetherButton = false;
+        }
+    }
+    #endregion
+
     #region Jumping
     public bool JumpButton;
     public void GetJumpInput(InputAction.CallbackContext input)
@@ -75,5 +90,59 @@ public class PlayerInputInterface : MonoBehaviour
         }
     }
     public void UseInteractButton() => InteractButton = false;
+    #endregion
+
+    #region Movement Ability
+    public bool MoveAbilityButton { get; private set; }
+    public void GetMoveAbilityInput(InputAction.CallbackContext input)
+    {
+        if (input.started)
+        {
+            MoveAbilityButton = true;
+        }
+        else if (input.canceled)
+        {
+            MoveAbilityButton = false;
+        }
+    }
+    public void UseMoveAbility() => MoveAbilityButton = false;
+    #endregion
+
+    #region Ability 1
+    public bool Abiltiy1Input { get; private set; }
+    public void GetAbility1Input(InputAction.CallbackContext input)
+    {
+        if (input.started)
+        {
+            Abiltiy1Input = true;
+        }
+        else if (input.canceled)
+        {
+            Abiltiy1Input = false;
+        }
+    }
+    public void UseAbility1()
+    {
+        Abiltiy1Input = false;
+    }
+    #endregion
+
+    #region Ability 2
+    public bool Abiltiy2Input { get; private set; }
+    public void GetAbility2Input(InputAction.CallbackContext input)
+    {
+        if (input.started)
+        {
+            Abiltiy2Input = true;
+        }
+        else if (input.canceled)
+        {
+            Abiltiy2Input = false;
+        }
+    }
+    public void UseAbility2()
+    {
+        Abiltiy2Input = false;
+    }
     #endregion
 }

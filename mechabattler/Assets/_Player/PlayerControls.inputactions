@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Tether",
+                    "type": "Button",
+                    "id": "22681fc2-2b5b-4b69-9e83-7ca2b914ab7b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "16abba7d-4392-4021-b058-938127bd140c",
@@ -41,6 +49,30 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "10a2fc51-f210-4085-8cfc-a8120eb0e9a5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveAbility",
+                    "type": "Button",
+                    "id": "1dde7ee5-5540-4950-a75d-ab00f080daf6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Ability1",
+                    "type": "Button",
+                    "id": "d1462356-0a74-4ffb-8898-9103784755bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Ability2",
+                    "type": "Button",
+                    "id": "f491c5b6-2a8c-440f-adbd-e590c99d6215",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -231,6 +263,50 @@
                     "processors": "",
                     "groups": "KBM",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa6c647b-8b54-40b5-91bd-5c9ec0c433d1",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "MoveAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b850606-a3c9-4a1d-b0a2-87dbfbcb51aa",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Tether",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59f1d115-8de1-4c4e-9f66-2a7e0029f7c6",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f42777ab-4792-407d-b703-ae32634b31cb",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Ability2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
