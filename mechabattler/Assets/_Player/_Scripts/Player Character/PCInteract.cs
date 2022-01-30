@@ -15,7 +15,9 @@ public class PCInteract : MonoBehaviour
     [SerializeField]
     Transform interactableObject;
     [SerializeField]
-    GameObject uiDetectInteract;
+    IInteractable interactTarget;
+    [SerializeField]
+    GameObject uiDetectIcon;
     GameObject uiTrack;
 
     public void InteractWith()
@@ -35,7 +37,7 @@ public class PCInteract : MonoBehaviour
         if (trigger.GetComponent<IInteractable>() != null)
         {
             interactableObject = trigger.transform;
-            uiTrack = Instantiate(uiDetectInteract, new Vector2(interactableObject.transform.position.x, interactableObject.transform.position.y + 1.25f), Quaternion.identity, interactableObject.transform);
+            uiTrack = Instantiate(uiDetectIcon, new Vector2(interactableObject.transform.position.x, interactableObject.transform.position.y + 1.25f), Quaternion.identity, interactableObject.transform);
         }
     }
 
@@ -46,6 +48,7 @@ public class PCInteract : MonoBehaviour
             print("exiting interactable");
             Destroy(uiTrack);
             uiTrack = null;
+            interactableObject = null;
         }
     }
 }

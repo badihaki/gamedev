@@ -15,5 +15,5 @@ MonoBehaviour:
   playerCharObj: {fileID: 8637188495065706876, guid: c16d960f773489c47acb4c5fbc92e0a2, type: 3}
   health: 10
   speed: 5
-  maxJumps: 1
-  jumpForce: 2
+  maxJumps: 3
+  jumpForce: 25

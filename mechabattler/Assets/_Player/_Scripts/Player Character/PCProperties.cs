@@ -5,7 +5,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PCLocomotion))]
 
@@ -58,7 +57,7 @@ public class PCProperties : MonoBehaviour
         MoveController = GetComponent<PCLocomotion>();
         WeaponController = GetComponentInChildren<PCWeapon>();
         InteractionController = GetComponentInChildren<PCInteract>();
-        boundary = GetComponent<CapsuleCollider2D>();
+        boundary = transform.Find("Body").GetComponent<CapsuleCollider2D>();
 
         // lets start state machine after making sure components are good
         InitStateMachine();

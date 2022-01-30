@@ -31,6 +31,8 @@ public class PlayerFreeFallState : PlayerInAirState
             if (player.MoveController.jumpCount > 0)
             {
                 // can jump, will jump
+                if (coyoteTime)
+                    coyoteTime = false;
                 stateMachine.ChangeState(player.JumpState);
             }
         }
