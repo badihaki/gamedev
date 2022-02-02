@@ -44,9 +44,9 @@ TagManager:
   - name: Player
     uniqueID: 1102326925
     locked: 0
-  - name: Item
-    uniqueID: 437111695
-    locked: 0
   - name: Mech
     uniqueID: 4135923469
+    locked: 0
+  - name: Item
+    uniqueID: 437111695
     locked: 0

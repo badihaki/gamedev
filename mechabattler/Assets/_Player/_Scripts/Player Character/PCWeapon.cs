@@ -89,11 +89,14 @@ public class PCWeapon : MonoBehaviour
     public void FireWeapon()
     {
         // print("shots fired");
-        if (shotTimer <= 0)
+        if (equippedWeapon != null)
         {
-            shotTimer = equippedWeapon.fireRate;
-            GameObject proj = Instantiate(equippedWeapon.projectileObj, shotPoint.position, shotPoint.rotation);
-            proj.GetComponent<BulletScript>().Init(equippedWeapon.projSpeed, equippedWeapon.projDamage);
+            if (shotTimer <= 0)
+            {
+                shotTimer = equippedWeapon.fireRate;
+                GameObject proj = Instantiate(equippedWeapon.projectileObj, shotPoint.position, shotPoint.rotation);
+                proj.GetComponent<BulletScript>().Init(equippedWeapon.projSpeed, equippedWeapon.projDamage);
+            }
         }
         
     }

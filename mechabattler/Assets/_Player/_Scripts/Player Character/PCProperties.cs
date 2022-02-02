@@ -30,6 +30,9 @@ public class PCProperties : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFreeFallState FreeFallState { get; private set; }
     public PlayerFreefallLandingState FreeFallLandingState { get; private set; }
+    public PlayerBoardVehicleState BoardVehicleState { get; private set; }
+    public PlayerRideVehicleState RideVehicleState { get; private set; }
+    public PlayerDisembarkState DisembarkState { get; private set; }
     #endregion
 
 
@@ -74,6 +77,9 @@ public class PCProperties : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, player.playerCharacter, "jump");
         FreeFallState = new PlayerFreeFallState(this, StateMachine, player.playerCharacter, "freefall");
         FreeFallLandingState = new PlayerFreefallLandingState(this, StateMachine, player.playerCharacter, "freefallLand");
+        BoardVehicleState = new PlayerBoardVehicleState(this, StateMachine, player.playerCharacter, "boardVehicle");
+        RideVehicleState = new PlayerRideVehicleState(this, StateMachine, player.playerCharacter, "vehicleRide");
+        DisembarkState = new PlayerDisembarkState(this, StateMachine, player.playerCharacter, "leaveVehicle");
         StateMachine.Initialize(IdleState);
     }
 

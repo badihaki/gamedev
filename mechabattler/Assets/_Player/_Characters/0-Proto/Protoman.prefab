@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 0}
-  uiDetectIcon: {fileID: 0}
+  uiDetectIcon: {fileID: 6277585759868325340, guid: 2eb29632bb7ec434cb423e2e12c90dd5, type: 3}
 --- !u!58 &6632927721669451895
 CircleCollider2D:
   m_ObjectHideFlags: 0

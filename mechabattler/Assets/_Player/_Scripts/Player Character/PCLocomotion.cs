@@ -5,12 +5,12 @@ using UnityEngine;
 public class PCLocomotion : MonoBehaviour
 {
     PlayerObject player;
-    private Rigidbody2D physicsController;
+    public Rigidbody2D PhysicsController { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<PCProperties>().player;
-        physicsController = GetComponent<Rigidbody2D>();
+        PhysicsController = GetComponent<Rigidbody2D>();
         ResetJumpCount();
     }
 
@@ -22,7 +22,7 @@ public class PCLocomotion : MonoBehaviour
 
     private void ApplyPhysics(float newX, float newY)
     {
-        physicsController.velocity = new Vector2(newX, newY);
+        PhysicsController.velocity = new Vector2(newX, newY);
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ public class PCLocomotion : MonoBehaviour
     /// <param name="direction"></param>
     public void MovePlayerX(int direction)
     {
-        Vector2 desiredMove = new Vector2(direction, physicsController.velocity.y) * player.playerCharacter.speed;
-        ApplyPhysics(desiredMove.x, physicsController.velocity.y);
+        Vector2 desiredMove = new Vector2(direction, PhysicsController.velocity.y) * player.playerCharacter.speed;
+        ApplyPhysics(desiredMove.x, PhysicsController.velocity.y);
     }
 
     #region Jumping
@@ -48,9 +48,9 @@ public class PCLocomotion : MonoBehaviour
         {
             // use a jump
             jumpCount--;
-            Vector2 jumpDir = new Vector2(physicsController.velocity.x, player.playerCharacter.jumpForce); // this code makes me jump
+            Vector2 jumpDir = new Vector2(PhysicsController.velocity.x, player.playerCharacter.jumpForce); // this code makes me jump
             print("calling Jump() with vector2 " + jumpDir);
-            ApplyPhysics(physicsController.velocity.x, jumpDir.y);
+            ApplyPhysics(PhysicsController.velocity.x, jumpDir.y);
         }
     }
     public void SetCoyoteJumpCount()

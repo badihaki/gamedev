@@ -22,7 +22,6 @@ public class PCInteract : MonoBehaviour
 
     public void InteractWith()
     {
-        print("attempting to interact");
         if (interactableObject != null)
         {
             print("interacting with " + interactableObject);
@@ -45,7 +44,6 @@ public class PCInteract : MonoBehaviour
     {
         if (trigger.transform == interactableObject)
         {
-            print("exiting interactable");
             Destroy(uiTrack);
             uiTrack = null;
             interactableObject = null;

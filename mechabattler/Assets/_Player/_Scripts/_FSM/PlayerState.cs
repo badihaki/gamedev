@@ -5,27 +5,27 @@ using UnityEngine;
 public class PlayerState
 {
     /*
-* <<<<<<<<<<<--------------STATE MACHINE DOC
-* 
-* This is the overarchine state script that all other states will inherit from.
-* 
-* THIS IS NOT A MONOBEHAVIOUR, and cannot be added to an ingame player character's
-* gameobject. It can only be accessed via script, by the PCActor class.
-* 
-* This will contain all the base functions a state would need to operate.
-* The states then override the base functions, keeping their functionality while
-* simultaneoulsy running their own logic right after.
-* 
-* ALL STATES INHERIT FROM THIS CLASS
-* 
-*/
+    * <<<<<<<<<<<--------------STATE MACHINE DOC
+    * 
+    * This is the overarchine state script that all other states will inherit from.
+    * 
+    * THIS IS NOT A MONOBEHAVIOUR, and cannot be added to an ingame player character's
+    * gameobject. It can only be accessed via script, by the PCActor class.
+    * 
+    * This will contain all the base functions a state would need to operate.
+    * The states then override the base functions, keeping their functionality while
+    * simultaneoulsy running their own logic right after.
+    * 
+    * ALL STATES INHERIT FROM THIS CLASS
+    * 
+    */
 
     /// <summary>
     /// player obj
     /// </summary>
-    protected PCProperties player;
+    protected PCProperties player; // we will access the player to change states and access certain in-game values
     protected PlayerFiniteStateMachine stateMachine;
-    protected PlayerCharacter playerData;
+    protected PlayerCharacter playerData; // we will access PlayerCharacter as data to carry stuff like stats
 
     protected bool isAnimationFinished;
     protected bool isExitingState;
@@ -59,7 +59,7 @@ public class PlayerState
         DoChecks();
         player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
-        Debug.Log("entering state: " + stateMachine.CurrentState + " /// animator value: " + animBoolName);
+        // Debug.Log("entering state: " + stateMachine.CurrentState + " /// animator value: " + animBoolName);
         isAnimationFinished = false;
         isExitingState = false;
     }
