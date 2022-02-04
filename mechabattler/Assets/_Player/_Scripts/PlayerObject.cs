@@ -10,6 +10,11 @@ using UnityEngine;
 public class PlayerObject : MonoBehaviour
 {
     public PlayerCharacter playerCharacter;
+
+    public int playerHealth;
+
+    public int playerIndex = 1;
+
     public PlayerInputInterface Controls { get; private set; }
 
     /*
@@ -44,5 +49,8 @@ public class PlayerObject : MonoBehaviour
 
         // lets initialize their gameplay, then state machine
         pc.GetComponent<PCProperties>().InitGameplay(this);
+
+        // set player health
+        playerHealth = playerCharacter.health;
     }
 }

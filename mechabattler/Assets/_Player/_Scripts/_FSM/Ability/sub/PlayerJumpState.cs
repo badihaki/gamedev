@@ -8,7 +8,7 @@ public class PlayerJumpState : PlayerAbilityState
     {
     }
     protected int xInput;
-
+    protected bool attackButton;
 
     public override void Enter()
     {
@@ -26,9 +26,15 @@ public class PlayerJumpState : PlayerAbilityState
         base.LogicUpdate();
 
         xInput = player.player.Controls.XInput;
+        attackButton = player.player.Controls.FireButton;
 
         // follow the mouse aim
         player.WeaponController.FollowAim();
+        // attack with weapon (shoot)
+        if (attackButton == true)
+        {
+            player.WeaponController.FireWeapon();
+        }
     }
 
     public override void PhysicsUpdate()

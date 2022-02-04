@@ -54,6 +54,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "2d5a84f1-25a7-4670-a935-0ecc31f10b65",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "MoveAbility",
                     "type": "Button",
                     "id": "1dde7ee5-5540-4950-a75d-ab00f080daf6",
@@ -246,11 +254,33 @@
                 },
                 {
                     "name": "",
+                    "id": "981b3624-5d9b-4474-9ee9-22cf55fb577d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4a8c8fde-ab33-4fbf-9b4f-ae4a0385dbac",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba862e1a-3ea1-4a88-baa1-d8a8e498ddb7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -268,11 +298,33 @@
                 },
                 {
                     "name": "",
+                    "id": "8e794ef7-d18d-43f7-807e-43d1eb95e3e6",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "aa6c647b-8b54-40b5-91bd-5c9ec0c433d1",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
+                    "action": "MoveAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4ab90fa-3ece-41f3-8b8c-17c28d1bad42",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "MoveAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -290,11 +342,33 @@
                 },
                 {
                     "name": "",
+                    "id": "b79dc38d-435f-4ede-942a-654b5998255b",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Tether",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "59f1d115-8de1-4c4e-9f66-2a7e0029f7c6",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
+                    "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5183a47f-8ede-49e5-9f58-c41151e6f196",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Ability1",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -307,6 +381,39 @@
                     "processors": "",
                     "groups": "KBM",
                     "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24f890ae-2a98-47fe-9e08-b1e8dca5d723",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b52cb02a-64d0-44ff-8449-cd9ae9b9e1ac",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2365549-8137-47b9-9f87-d6a5f811a44e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

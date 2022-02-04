@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PCLocomotion))]
+[RequireComponent(typeof(PCUI))]
 
 /// <summary>
 /// The purpose of this script is to read the Player Obj Script for it's various variables
@@ -20,6 +21,7 @@ public class PCProperties : MonoBehaviour
     public PCLocomotion MoveController { get; private set; } // movement script for moving and jumping, dawg
     public PCWeapon WeaponController { get; private set; }
     public PCInteract InteractionController { get; private set; }
+    public PCUI UI { get; private set; }
     private CapsuleCollider2D boundary;
     #endregion
 
@@ -61,6 +63,8 @@ public class PCProperties : MonoBehaviour
         WeaponController = GetComponentInChildren<PCWeapon>();
         InteractionController = GetComponentInChildren<PCInteract>();
         boundary = transform.Find("Body").GetComponent<CapsuleCollider2D>();
+        UI = GetComponent<PCUI>();
+        UI.Init(this);
 
         // lets start state machine after making sure components are good
         InitStateMachine();

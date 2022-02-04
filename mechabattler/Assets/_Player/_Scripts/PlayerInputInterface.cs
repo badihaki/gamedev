@@ -45,6 +45,26 @@ public class PlayerInputInterface : MonoBehaviour
     }
     #endregion
 
+    #region Reloading
+    public bool ReloadButton { get; private set; }
+
+    public void GetReloadInput(InputAction.CallbackContext input)
+    {
+        if (input.started)
+        {
+            ReloadButton = true;
+        }
+        else if (input.canceled)
+        {
+            ReloadButton = false;
+        }
+    }
+    public void UseReloadButton()
+    {
+        ReloadButton = false;
+    }
+    #endregion
+
     #region Tethering
     public bool TetherButton { get; private set; }
     public void GetTetherInput(InputAction.CallbackContext input)

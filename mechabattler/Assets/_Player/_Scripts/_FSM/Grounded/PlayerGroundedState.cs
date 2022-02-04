@@ -30,6 +30,7 @@ public class PlayerGroundedState : PlayerState
         {
             player.WeaponController.FireWeapon();
         }
+        // interaction
         if (interactButton == true)
         {
             player.InteractionController.InteractWith();

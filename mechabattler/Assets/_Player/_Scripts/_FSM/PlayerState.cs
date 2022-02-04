@@ -60,6 +60,7 @@ public class PlayerState
         player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
         // Debug.Log("entering state: " + stateMachine.CurrentState + " /// animator value: " + animBoolName);
+        UpdateUI();
         isAnimationFinished = false;
         isExitingState = false;
     }
@@ -126,5 +127,9 @@ public class PlayerState
     }
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 
+    void UpdateUI()
+    {
+        player.UI.UpdateStateUI(animBoolName);
+    }
 
 }

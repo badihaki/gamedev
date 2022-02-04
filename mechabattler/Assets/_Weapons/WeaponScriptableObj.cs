@@ -10,8 +10,12 @@ public class WeaponScriptableObj : ScriptableObject
     public GameObject weaponPickup;
     public GameObject projectileObj;
 
-    [Header("Game Objects")]
-    public float fireRate;
+    [Header("Stats for Projectile")]
     public float projSpeed;
     public int projDamage;
+
+    [Header("Stats for Gun")]
+    public float fireRate;
+    public int clipSize;
+    public float reloadSpeed;
 }

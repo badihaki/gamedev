@@ -10,6 +10,7 @@ public class PlayerInAirState : PlayerState
 
     protected int xInput;
     protected bool jumpInput;
+    protected bool attackButton;
 
     public override void LogicUpdate()
     {
@@ -17,9 +18,15 @@ public class PlayerInAirState : PlayerState
 
         xInput = player.player.Controls.XInput;
         jumpInput = player.player.Controls.JumpButton;
+        attackButton = player.player.Controls.FireButton;
 
         // follow the mouse aim
         player.WeaponController.FollowAim();
+        // attack with weapon (shoot)
+        if (attackButton == true)
+        {
+            player.WeaponController.FireWeapon();
+        }
     }
     public override void DoChecks()
     {
