@@ -49,7 +49,6 @@ public class PCLocomotion : MonoBehaviour
             // use a jump
             jumpCount--;
             Vector2 jumpDir = new Vector2(PhysicsController.velocity.x, player.playerCharacter.jumpForce); // this code makes me jump
-            print("calling Jump() with vector2 " + jumpDir);
             ApplyPhysics(PhysicsController.velocity.x, jumpDir.y);
         }
     }

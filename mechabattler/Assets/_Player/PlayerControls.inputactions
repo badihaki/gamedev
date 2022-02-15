@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Tether",
+                    "name": "AltAttack",
                     "type": "Button",
                     "id": "22681fc2-2b5b-4b69-9e83-7ca2b914ab7b",
                     "expectedControlType": "Button",
@@ -332,11 +332,11 @@
                 {
                     "name": "",
                     "id": "5b850606-a3c9-4a1d-b0a2-87dbfbcb51aa",
-                    "path": "<Mouse>/middleButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
-                    "action": "Tether",
+                    "action": "AltAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -347,7 +347,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Tether",
+                    "action": "AltAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

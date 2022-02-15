@@ -10,10 +10,13 @@ using UnityEngine;
 public class PlayerObject : MonoBehaviour
 {
     public PlayerCharacter playerCharacter;
+    public GameObject userInterfaceImage;
 
     public int playerHealth;
 
-    public int playerIndex = 1;
+    public int playerIndex = 0;
+
+    public bool testMode;
 
     public PlayerInputInterface Controls { get; private set; }
 
@@ -24,13 +27,20 @@ public class PlayerObject : MonoBehaviour
      * This script will also help determine what mode we're in (gameplay or menus)
      */
 
+    // Awake is called before Start
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Controls = GetComponent<PlayerInputInterface>();
 
         // below we are going to initialize gameplay
-        InitGameplay();
+        if(testMode)
+            InitGameplay(GameObject.Find("Start").transform);
         // in the real game, the scene will call InitGameplay() when it's ready to initalize the player
     }
 
@@ -40,11 +50,14 @@ public class PlayerObject : MonoBehaviour
 
     }
 
-    public void InitGameplay()
+    public void SelectCharacter(PlayerCharacter mychar)
     {
-        // create the player character obj
-        Transform startingpoint = GameObject.Find("Player Start").transform; // find the starting point for the player
-        GameObject pc = Instantiate(playerCharacter.playerCharObj, startingpoint.position, Quaternion.identity);
+        playerCharacter = mychar;
+    }
+
+    public void InitGameplay(Transform startingPoint)
+    {
+        GameObject pc = Instantiate(playerCharacter.playerCharObj, startingPoint.position, Quaternion.identity);
         pc.GetComponent<PCProperties>().player = this;
 
         // lets initialize their gameplay, then state machine

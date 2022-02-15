@@ -50,7 +50,7 @@ public class PCWeapon : MonoBehaviour
         // manage the fire rate
         ManageFireRate();
         // manage reloading
-        if (isReloading == true)
+        if (equippedWeapon != null && isReloading == true)
         {
             ReloadWeapon();
         }
@@ -99,7 +99,6 @@ public class PCWeapon : MonoBehaviour
     public void GetWeapon(WeaponScriptableObj newWeapon)
     {
         // equip new weapon
-        print("getting new weapon: " + newWeapon);
         if (equippedWeapon != null)
         {
             // if there is already an equipped weapon, do this below

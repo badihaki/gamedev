@@ -24,9 +24,11 @@ public class PlayerInputInterface : MonoBehaviour
 
     #region Aiming
     public Vector2 AimInput { get; private set; }
+    public Vector2 aim;
     public void GetAimInput(InputAction.CallbackContext input)
     {
-        AimInput = input.ReadValue<Vector2>();
+        AimInput = input.ReadValue<Vector2>().normalized;
+        aim = input.ReadValue<Vector2>().normalized;
     }
     #endregion
 
@@ -65,17 +67,17 @@ public class PlayerInputInterface : MonoBehaviour
     }
     #endregion
 
-    #region Tethering
-    public bool TetherButton { get; private set; }
-    public void GetTetherInput(InputAction.CallbackContext input)
+    #region Weapon Alt Fire
+    public bool AltFireButton { get; private set; }
+    public void GetAltFireInput(InputAction.CallbackContext input)
     {
         if (input.performed)
         {
-            TetherButton = true;
+            AltFireButton = true;
         }
         else if (input.canceled)
         {
-            TetherButton = false;
+            AltFireButton = false;
         }
     }
     #endregion

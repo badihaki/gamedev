@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 0}
-  uiDetectIcon: {fileID: 0}
+  uiDetectIcon: {fileID: 6277585759868325340, guid: 2eb29632bb7ec434cb423e2e12c90dd5, type: 3}
 --- !u!114 &3324465399334951949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,11 @@ MonoBehaviour:
   aimOffset: 0
   shotPoint: {fileID: 0}
   weaponObj: {fileID: 0}
+  shotTimer: 0
   shotTimerDemo: 0
+  currentAmmo: 0
+  reloadTimer: 0
+  isReloading: 0
 --- !u!1 &3324465400163468876
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +197,7 @@ GameObject:
   - component: {fileID: 3324465400163468879}
   - component: {fileID: 3324465400163468878}
   - component: {fileID: 3324465400163468877}
+  - component: {fileID: 6881092049445026846}
   m_Layer: 0
   m_Name: Pixie-Base
   m_TagString: Untagged
@@ -338,3 +343,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   extraHeightDistance: 0
+--- !u!114 &6881092049445026846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3324465400163468876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e0f0834790bc247a1cde52b403bec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
+  pcName: {fileID: 0}
+  healthBar: {fileID: 0}
+  ammoCount: {fileID: 0}
+  state: {fileID: 0}
