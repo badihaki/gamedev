@@ -11,8 +11,6 @@ public class PCWeapon : MonoBehaviour
     PCProperties pc;
     PlayerObject player;
     Vector2 aim;
-    [SerializeField]
-    float aimOffset;
     public WeaponScriptableObj equippedWeapon { get; private set; }
     [SerializeField]
     private Transform shotPoint;
@@ -27,6 +25,11 @@ public class PCWeapon : MonoBehaviour
     private float reloadTimer;
     [SerializeField]
     private bool isReloading;
+    [SerializeField]
+    float rotateOnZ;
+    [SerializeField]
+    Vector2 targetRotation;
+    [SerializeField] Transform trans;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class PCWeapon : MonoBehaviour
         // player = GetComponentInParent<PCProperties>().player;
         pc = GetComponentInParent<PCProperties>();
         player = pc.player;
+        trans = this.transform;
     }
 
     // The function to initialize the weapon on pickup
@@ -85,15 +89,22 @@ public class PCWeapon : MonoBehaviour
 
     public void FollowAim()
     {
-        // first get the aim from the player's root
-        aim = player.Controls.AimInput;
+        if (player != null)
+        {
+            // first get the aim from the player's root
+            aim = player.Controls.AimInput;
 
-        // next calc diff between weapon's transform and mouse transform
-        Vector2 differenceBetweenWeaponAndMouse = Camera.main.ScreenToWorldPoint(aim) - transform.position;
-        // obtain the desired rotation of Z
-        float rotateOnZ = Mathf.Atan2(differenceBetweenWeaponAndMouse.y, differenceBetweenWeaponAndMouse.x) * Mathf.Rad2Deg;
-        // Apply desired rotation of Z
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateOnZ + aimOffset);
+            // next calc diff between weapon's transform and mouse transform
+            // differenceBetweenWeaponAndMouse = Camera.main.ScreenToWorldPoint(aim) - transform.position;
+            targetRotation = Camera.main.ScreenToWorldPoint(aim) - trans.position;
+
+            // obtain the desired rotation of Z
+            rotateOnZ = Mathf.Atan2(targetRotation.y, targetRotation.x) * Mathf.Rad2Deg;
+            // Apply desired rotation of Z
+            // transform.rotation = Quaternion.Euler(0f, 0f, rotateOnZ);
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, rotateOnZ));
+            print(player.playerCharacter.name + " is rotatin");
+        }
     }
 
     public void GetWeapon(WeaponScriptableObj newWeapon)

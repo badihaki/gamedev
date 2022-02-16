@@ -90,6 +90,7 @@ public class PCProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate()

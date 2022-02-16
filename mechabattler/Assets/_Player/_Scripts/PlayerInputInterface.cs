@@ -27,7 +27,8 @@ public class PlayerInputInterface : MonoBehaviour
     public Vector2 aim;
     public void GetAimInput(InputAction.CallbackContext input)
     {
-        AimInput = input.ReadValue<Vector2>().normalized;
+        AimInput = input.ReadValue<Vector2>();
+
         aim = input.ReadValue<Vector2>().normalized;
     }
     #endregion
