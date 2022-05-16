@@ -37,6 +37,8 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.LogicUpdate();
 
+        player.MoveController.Move(xInput);
+
         if (!isExitingState)
         {
             if (xInput == 0)

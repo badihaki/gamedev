@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    private Rigidbody2D controller;
+    [SerializeField] private Rigidbody2D controller;
+    [SerializeField] private Vector2 desiredVelocity;
+    [SerializeField] private Player player;
     // Start is called before the first frame update
-    void InitController()
+    public void InitController()
     {
         controller = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     public void Update()
     {
-        
+        //
     }
 
-    public void Move()
+    public void FixedUpdate()
     {
-        //
+        controller.velocity = new Vector2(desiredVelocity.x, controller.velocity.y);
+    }
+
+    public void Move(int direction)
+    {
+        desiredVelocity.x  = direction * player.speed;
+        print(direction);
+        print(desiredVelocity);
     }
     public void Jump()
     {

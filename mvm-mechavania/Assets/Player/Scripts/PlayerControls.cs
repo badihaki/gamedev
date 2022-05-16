@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerControls : MonoBehaviour
 {
     public int Xinput { get; private set; }
+    public Vector2 moveInput;
     public void GetMoveInput(InputAction.CallbackContext input)
     {
-        Vector2 moveInput = input.ReadValue<Vector2>();
+        moveInput = input.ReadValue<Vector2>();
         Xinput = (int)(moveInput * Vector2.right).normalized.x;
     }
     public bool JumpButton { get; private set; }

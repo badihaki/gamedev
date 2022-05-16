@@ -39,8 +39,8 @@ public class PlayerGroundedState : PlayerState
     {
         base.LogicUpdate();
 
-        xInput = player.InputInterface.Xinput;
-        jumpInput = player.InputInterface.JumpButton;
+        xInput = player.InputController.Xinput;
+        jumpInput = player.InputController.JumpButton;
     }
 
     public override void PhysicsUpdate()
