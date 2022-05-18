@@ -38,16 +38,17 @@ public class PlayerMoveState : PlayerGroundedState
         base.LogicUpdate();
 
         player.MoveController.Move(xInput);
-
-        if (!isExitingState)
-        {
-            if (xInput == 0)
-            {
-                stateMachine.ChangeState(player.MoveState);
-            }
-        }
     }
 
+    public override void TransitionConditions()
+    {
+        base.TransitionConditions();
+
+        if (xInput == 0)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

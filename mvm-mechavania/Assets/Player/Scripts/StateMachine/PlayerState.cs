@@ -31,6 +31,8 @@ public class PlayerState
 
     private string animBoolName;
 
+    protected bool isGrounded;
+
     public PlayerState(Player thePlayer, PlayerStateMachine theStateMachine, string theAnimBoolName)
     {
         this.player = thePlayer;
@@ -61,6 +63,12 @@ public class PlayerState
          * Use this function to control the logic to move from one state to another,
          * as well as changing variables
          */
+        isGrounded = player.Grounded();
+
+        if (!isExitingState)
+        {
+            TransitionConditions();
+        }
     }
     public virtual void PhysicsUpdate()
     {
@@ -80,6 +88,11 @@ public class PlayerState
     public virtual void AnimationTrigger()
     {
 
+    }
+
+    public virtual void TransitionConditions()
+    {
+        
     }
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 

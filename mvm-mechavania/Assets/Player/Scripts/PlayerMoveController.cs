@@ -33,5 +33,6 @@ public class PlayerMoveController : MonoBehaviour
     public void Jump()
     {
         //
+        controller.AddForce(new Vector2(desiredVelocity.x, player.jump), ForceMode2D.Impulse);
     }
 }

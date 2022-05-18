@@ -413,15 +413,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!61 &553672074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1405106362}
   - component: {fileID: 1405106361}
   - component: {fileID: 1405106360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -920,7 +920,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: 0
   speed: 3
-  jump: 0
+  jump: 10
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  extraHeightDistance: 0
 --- !u!95 &1877833945
 Animator:
   serializedVersion: 3
@@ -931,7 +935,7 @@ Animator:
   m_GameObject: {fileID: 1877833936}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2714b865ecc9f1d48afea86f15c3268e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

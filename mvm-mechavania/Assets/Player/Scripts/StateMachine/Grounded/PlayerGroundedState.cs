@@ -10,6 +10,7 @@ public class PlayerGroundedState : PlayerState
 
     protected int xInput;
     protected bool jumpInput;
+
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
@@ -39,12 +40,31 @@ public class PlayerGroundedState : PlayerState
     {
         base.LogicUpdate();
 
-        xInput = player.InputController.Xinput;
-        jumpInput = player.InputController.JumpButton;
+        xInput = player.Controls.Xinput;
+        jumpInput = player.Controls.JumpButton;
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    public override void TransitionConditions()
+    {
+        base.TransitionConditions();
+
+        if (isGrounded)
+        {
+            if (jumpInput)
+            {
+            player.Controls.UseJump();
+            stateMachine.ChangeState(player.JumpState);
+            }
+        }
+        else
+        {
+            stateMachine.ChangeState(player.InAirState);
+        }
+
     }
 }
