@@ -7,11 +7,14 @@ public class PlayerMoveController : MonoBehaviour
     [SerializeField] private Rigidbody2D controller;
     [SerializeField] private Vector2 desiredVelocity;
     [SerializeField] private Player player;
+    [SerializeField] private bool facingRight;
     // Start is called before the first frame update
     public void InitController()
     {
         controller = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+
+        facingRight = true;
     }
 
     public void Update()
@@ -26,9 +29,23 @@ public class PlayerMoveController : MonoBehaviour
 
     public void Move(int direction)
     {
+        if (desiredVelocity.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (desiredVelocity.x < 0 && facingRight)
+        {
+            Flip();
+        }
         desiredVelocity.x  = direction * player.speed;
-        print(direction);
-        print(desiredVelocity);
+    }
+    private void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        facingRight = !facingRight;
     }
     public void Jump()
     {
