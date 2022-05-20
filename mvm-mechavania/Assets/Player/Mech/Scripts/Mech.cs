@@ -28,10 +28,12 @@ public class Mech : MonoBehaviour
     void Start()
     {
         Anim = GetComponent<Animator>();
-        boundary = GetComponent<BoxCollider2D>();
+        boundary = GetComponentInChildren<BoxCollider2D>();
 
         StateMachine = new MechStateMachine();
         MechInactiveState = new MechInactiveState(this, StateMachine, "idle");
+
+        StateMachine.Initialize(MechInactiveState);
     }
 
     public void GetPilot(Player newPilot)

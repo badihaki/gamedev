@@ -44,9 +44,9 @@ public class Player : MonoBehaviour
             MoveController = GetComponent<PlayerMoveController>();
             MoveController.InitController();
         }
-        if (GetComponent<CapsuleCollider2D>() != null)
+        if (GetComponentInChildren<CapsuleCollider2D>() != null)
         {
-            boundary = GetComponent<CapsuleCollider2D>();
+            boundary = GetComponentInChildren<CapsuleCollider2D>();
         }
 
         InitializePlayerState();
