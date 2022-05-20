@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class PlayerGroundedState : PlayerState
 
     protected int xInput;
     protected bool jumpInput;
+    protected bool attackInput;
+    protected bool interactInput;
 
     public override void AnimationFinishTrigger()
     {
@@ -42,6 +45,27 @@ public class PlayerGroundedState : PlayerState
 
         xInput = player.Controls.Xinput;
         jumpInput = player.Controls.JumpButton;
+        attackInput = player.Controls.AttackButton;
+        interactInput = player.Controls.InteractButton;
+
+        Attack();
+        Interact();
+    }
+
+    private void Attack()
+    {
+        if (attackInput)
+        {
+            // attack
+        }
+    }
+
+    private void Interact()
+    {
+        if (interactInput && player.CurrentInteractableObj != null)
+        {
+            player.UseInteractableObj();
+        }
     }
 
     public override void PhysicsUpdate()

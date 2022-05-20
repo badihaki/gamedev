@@ -17,4 +17,16 @@ public class MechInactiveState : MechState
             mecha.EjectPilot();
         }
     }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if (mecha.Interactor.Interact)
+        {
+            mecha.GetPilot(mecha.Interactor.Player);
+            mecha.Interactor.ResetInteract();
+            stateMachine.ChangeState(mecha.MechPilotEmbarkState);
+        }
+    }
 }

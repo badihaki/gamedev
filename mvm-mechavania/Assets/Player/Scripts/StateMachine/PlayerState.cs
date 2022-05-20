@@ -45,7 +45,7 @@ public class PlayerState
         DoChecks();
         player.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
-        Debug.Log("entering state: " + stateMachine.CurrentState + " animator value: " + animBoolName);
+        // Debug.Log("entering state: " + stateMachine.CurrentState + " animator value: " + animBoolName);
         isAnimationFinished = false;
         isExitingState = false;
     }

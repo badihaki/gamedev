@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Stats")]
     public int attack;
     public int speed;
     public int jump;
+    public Interactor CurrentInteractableObj { get; private set; }
+    public void GetNewInteractiveObj(Interactor newObj)
+    {
+        CurrentInteractableObj = newObj;
+    }
+    public void UseInteractableObj()
+    {
+        CurrentInteractableObj.SetInteract(this);
+    }
+    public void RemoveInteractiveObj()
+    {
+        CurrentInteractableObj = null;
+    }
 
     #region Components
     public Animator Anim { get; private set; }
@@ -21,6 +35,8 @@ public class Player : MonoBehaviour
     public PlayerMoveState MoveState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
+    public PlayerMechState MechState { get; private set; }
+    public PlayerLeaveMechState LeaveMechState { get; private set; }
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -59,6 +75,8 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine, "move");
         JumpState = new PlayerJumpState(this, StateMachine, "inAir");
         InAirState = new PlayerInAirState(this, StateMachine, "inAir");
+        MechState = new PlayerMechState(this, StateMachine, "mech");
+        LeaveMechState = new PlayerLeaveMechState(this, StateMachine, "inAir");
     }
 
     // Update is called once per frame

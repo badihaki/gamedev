@@ -15,5 +15,13 @@ public class MechGroundedState : MechState
     public override void TransitionConditions()
     {
         base.TransitionConditions();
+
+        if (Time.time >= startTime + 1)
+        {
+            if (mecha.Pilot.Controls.Yinput == -1 && mecha.Pilot.Controls.InteractButton)
+            {
+                stateMachine.ChangeState(mecha.MechPilotEjectState);
+            }
+        }
     }
 }
