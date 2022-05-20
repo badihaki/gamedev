@@ -30,7 +30,7 @@ public class MechState
         startTime = Time.time;
         isAnimationFinished = false;
         isExitingState = false;
-        Debug.Log("entering state: " + stateMachine.CurrentState + " animator value: " + animBoolName);
+        // Debug.Log("entering state: " + stateMachine.CurrentState + " animator value: " + animBoolName);
     }
     public virtual void Exit()
     {

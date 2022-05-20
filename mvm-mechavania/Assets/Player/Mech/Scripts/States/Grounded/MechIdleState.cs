@@ -12,6 +12,7 @@ public class MechIdleState : MechGroundedState
     {
         base.LogicUpdate();
 
-        mecha.StickyPilot();
+        if(!isExitingState)
+            mecha.StickyPilot();
     }
 }

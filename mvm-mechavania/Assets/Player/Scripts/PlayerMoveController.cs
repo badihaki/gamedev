@@ -54,6 +54,6 @@ public class PlayerMoveController : MonoBehaviour
     }
     public void Eject()
     {
-        controller.AddForce(new Vector2(Random.Range(0.5f, 1.75f), Random.Range(6.35f, 9.75f)), ForceMode2D.Impulse);
+        controller.AddForce(new Vector2(Random.Range(0.5f, 1.75f), player.jump));
     }
 }

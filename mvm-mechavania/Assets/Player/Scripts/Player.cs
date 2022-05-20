@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public PlayerControls Controls { get; private set; }
     public PlayerMoveController MoveController { get; private set; }
     private CapsuleCollider2D boundary;
+    public Activator Activator { get; private set; }
     #endregion
 
     #region state machine
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         {
             boundary = GetComponentInChildren<CapsuleCollider2D>();
         }
+        Activator = GetComponentInChildren<Activator>();
 
         InitializePlayerState();
         StateMachine.Initialize(IdleState);

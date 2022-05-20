@@ -12,6 +12,6 @@ public class PlayerMechState : PlayerState
     {
         base.Enter();
 
-        player.GetComponentInChildren<Activator>().gameObject.SetActive(false);
+        player.Activator.gameObject.SetActive(false);
     }
 }

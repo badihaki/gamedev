@@ -31,7 +31,6 @@ public class Mech : MonoBehaviour
         Anim = GetComponent<Animator>();
         boundary = GetComponentInChildren<BoxCollider2D>();
         Interactor = GetComponentInChildren<Interactor>();
-        Debug.Log(Interactor);
 
         StateMachine = new MechStateMachine();
         MechInactiveState = new MechInactiveState(this, StateMachine, "idle");

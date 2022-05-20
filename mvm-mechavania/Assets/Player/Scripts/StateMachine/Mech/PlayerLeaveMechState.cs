@@ -12,6 +12,14 @@ public class PlayerLeaveMechState : PlayerState
     {
         base.Enter();
 
-        player.GetComponentInChildren<Activator>().gameObject.SetActive(true);
+        player.Activator.gameObject.SetActive(true);
+    }
+
+    public override void TransitionConditions()
+    {
+        base.TransitionConditions();
+
+        if (Time.time >= startTime + 0.5f)
+            stateMachine.ChangeState(player.InAirState);
     }
 }
