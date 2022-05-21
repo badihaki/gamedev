@@ -11,8 +11,17 @@ public class MechIdleState : MechGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if(!isExitingState)
-            mecha.StickyPilot();
     }
+
+    public override void TransitionConditions()
+    {
+        base.TransitionConditions();
+
+        if (mecha.Pilot.Controls.Xinput != 0)
+        {
+            stateMachine.ChangeState(mecha.MoveState);
+        }
+    }
+
+    // end 
 }

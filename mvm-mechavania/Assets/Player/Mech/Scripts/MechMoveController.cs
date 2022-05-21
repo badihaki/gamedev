@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveController : MonoBehaviour
+public class MechMoveController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D controller;
     [SerializeField] private Vector2 desiredVelocity;
-    [SerializeField] private Player player;
-    public bool FacingRight { get; private set; }
+    [SerializeField] private Mech mech;
+    [SerializeField] private bool facingRight;
     // Start is called before the first frame update
     public void InitController()
     {
         controller = GetComponent<Rigidbody2D>();
-        player = GetComponent<Player>();
+        mech = GetComponent<Mech>();
 
-        FacingRight = true;
+        facingRight = true;
     }
 
     public void Update()
@@ -29,15 +29,15 @@ public class PlayerMoveController : MonoBehaviour
 
     public void Move(int direction)
     {
-        if (desiredVelocity.x > 0 && !FacingRight)
+        if (desiredVelocity.x > 0 && !facingRight)
         {
             Flip();
         }
-        else if (desiredVelocity.x < 0 && FacingRight)
+        else if (desiredVelocity.x < 0 && facingRight)
         {
             Flip();
         }
-        desiredVelocity.x  = direction * player.speed;
+        desiredVelocity.x = direction * mech.speed;
     }
     private void Flip()
     {
@@ -45,15 +45,11 @@ public class PlayerMoveController : MonoBehaviour
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
 
-        FacingRight = !FacingRight;
+        facingRight = !facingRight;
     }
     public void Jump()
     {
         //
-        controller.AddForce(new Vector2(desiredVelocity.x, player.jump), ForceMode2D.Impulse);
-    }
-    public void Eject()
-    {
-        controller.AddForce(new Vector2(Random.Range(0.5f, 1.75f), player.jump));
+        controller.AddForce(new Vector2(desiredVelocity.x, mech.jump), ForceMode2D.Impulse);
     }
 }

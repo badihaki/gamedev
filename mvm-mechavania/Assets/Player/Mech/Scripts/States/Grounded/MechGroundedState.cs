@@ -10,6 +10,15 @@ public class MechGroundedState : MechState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        if (!isExitingState)
+            mecha.StickyPilot();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+
     }
 
     public override void TransitionConditions()

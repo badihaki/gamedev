@@ -57,6 +57,7 @@ public class PlayerGroundedState : PlayerState
         if (attackInput)
         {
             // attack
+            player.AttackController.Attack();
         }
     }
 

@@ -41,3 +41,5 @@
 
 ### BUGS!!!
 - Disembarking doesn't do a small hop, only blips player back into world
+
+- Need to deactivate mech's interator component

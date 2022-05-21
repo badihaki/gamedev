@@ -14,6 +14,7 @@ public class Mech : MonoBehaviour
     [SerializeField] private BoxCollider2D boundary;
     public Player Pilot { get; private set; }
     [SerializeField] private Transform cockpit;
+    public MechMoveController MoveController { get; private set; }
     public Interactor Interactor { get; private set; }
     #endregion
 
@@ -23,18 +24,24 @@ public class Mech : MonoBehaviour
     public MechPilotEmbarkState MechPilotEmbarkState { get; private set; }
     public MechPilotEjectState MechPilotEjectState { get; private set; }
     public MechIdleState IdleState { get; private set; }
+    public MechMoveState MoveState { get; private set; }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        // components
         Anim = GetComponent<Animator>();
         boundary = GetComponentInChildren<BoxCollider2D>();
         Interactor = GetComponentInChildren<Interactor>();
+        MoveController = GetComponent<MechMoveController>();
+        MoveController.InitController();
 
+        // State Machine
         StateMachine = new MechStateMachine();
         MechInactiveState = new MechInactiveState(this, StateMachine, "idle");
 
+        // Init
         StateMachine.Initialize(MechInactiveState);
     }
     #region Pilot Functs
@@ -43,6 +50,7 @@ public class Mech : MonoBehaviour
         Pilot = newPilot;
 
         IdleState = new MechIdleState(this, StateMachine, "idle");
+        MoveState = new MechMoveState(this, StateMachine, "move");
         MechPilotEmbarkState = new MechPilotEmbarkState(this, StateMachine, "idle");
         MechPilotEjectState = new MechPilotEjectState(this, StateMachine, "idle");
 

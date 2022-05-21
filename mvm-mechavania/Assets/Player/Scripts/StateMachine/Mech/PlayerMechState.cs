@@ -13,5 +13,6 @@ public class PlayerMechState : PlayerState
         base.Enter();
 
         player.Activator.gameObject.SetActive(false);
+        player.SetMechCam();
     }
 }

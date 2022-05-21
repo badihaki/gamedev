@@ -13,6 +13,7 @@ public class PlayerLeaveMechState : PlayerState
         base.Enter();
 
         player.Activator.gameObject.SetActive(true);
+        player.SetPlayerCam();
     }
 
     public override void TransitionConditions()

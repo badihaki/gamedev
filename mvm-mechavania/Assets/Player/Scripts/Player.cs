@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -22,14 +23,20 @@ public class Player : MonoBehaviour
         CurrentInteractableObj = null;
     }
 
+    //
+    // Components
     #region Components
     public Animator Anim { get; private set; }
     public PlayerControls Controls { get; private set; }
     public PlayerMoveController MoveController { get; private set; }
+    public PlayerAttackController AttackController { get; private set; }
     private CapsuleCollider2D boundary;
     public Activator Activator { get; private set; }
+    private CinemachineVirtualCamera _CamController;
     #endregion
 
+    //
+    // State Machine
     #region state machine
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
@@ -66,6 +73,8 @@ public class Player : MonoBehaviour
             boundary = GetComponentInChildren<CapsuleCollider2D>();
         }
         Activator = GetComponentInChildren<Activator>();
+        AttackController = GetComponent<PlayerAttackController>();
+        _CamController = GameObject.Find("Cam-Player").GetComponent<CinemachineVirtualCamera>();
 
         InitializePlayerState();
         StateMachine.Initialize(IdleState);
@@ -112,5 +121,13 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    public void SetPlayerCam()
+    {
+        _CamController.Priority = 10;
+    }
+    public void SetMechCam()
+    {
+        _CamController.Priority = 8;
+    }
     // end of the line
 }
