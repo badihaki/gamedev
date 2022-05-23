@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+    Player player;
+
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform gunPosition;
 
@@ -14,6 +16,7 @@ public class PlayerAttackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<Player>();
         attackTimer = atkTime;
     }
 
@@ -23,8 +26,15 @@ public class PlayerAttackController : MonoBehaviour
         ManageTimer();
     }
 
+    private void ManageAnim()
+    {
+        player.Anim.SetBool("attack", player.Controls.AttackButton);
+    }
+
     private void ManageTimer()
     {
+        ManageAnim();
+
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")]
     public int attack;
-    public int speed;
+    public float speed;
     public int jump;
     public Interactor CurrentInteractableObj { get; private set; }
     public void GetNewInteractiveObj(Interactor newObj)

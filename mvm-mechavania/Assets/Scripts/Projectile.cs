@@ -37,7 +37,6 @@ public class Projectile : MonoBehaviour
         if (collision.tag != gameObject.tag)
         {
         var hurtable = collision.GetComponent<IDamageable>();
-            print(hurtable);
         if (hurtable == null)
                 return;
 

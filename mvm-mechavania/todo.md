@@ -5,8 +5,6 @@
 	- All inputs for actions can be derived from the PLAYER CONTROLS
 	- Lets get moving, jumping, inair, landing working
 - Enemy AI
-	- Enemy base FSM
-		- idle, chase, search
 	- Enemy specific states
 		- attacks, jumping(?)
 - Get player hurting
@@ -37,3 +35,5 @@
 - Disembarking doesn't do a small hop, only blips player back into world
 
 - Need to deactivate mech's interator component
+
+- Attack animations dont work as intended???
