@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemyIdleState IdleState { get; private set; }
     public EnemyChaseState ChaseState { get; private set; }
     public EnemySearchState SearchState { get; private set; }
+    public EnemyAttackState AttackState { get; protected set; }
 
 
     // Start is called before the first frame update

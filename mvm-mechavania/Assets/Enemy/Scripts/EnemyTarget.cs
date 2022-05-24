@@ -23,6 +23,7 @@ public class EnemyTarget : MonoBehaviour
         {
             Target = newTarget;
         }
+        TargetTimer = enemy.waitSearchTime;
     }
     public void TargetExitDetector()
     {

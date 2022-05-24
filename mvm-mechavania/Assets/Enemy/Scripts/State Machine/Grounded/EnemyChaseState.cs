@@ -12,21 +12,27 @@ public class EnemyChaseState : EnemyGroundedState
     {
         base.LogicUpdate();
 
-
+        // Distance
         // Vector2 distance = enemy.transform.position - target.GetComponentInParent<Player>().transform.position;
         float distance;
-
         if (enemy.Target.Target != null)
         {
             distance = Vector3.Distance(enemy.transform.position, target.transform.position);
         }
         else
             distance = 0;
+        //
+        // Attacks
+        enemy.AttackController.HandleAttackTimer();
+        //
 
-        if (distance > enemy.desiredDistanceToPlayer)
-            enemy.MoveController.Chase();
-        else
-            enemy.MoveController.ZeroVelocityX();
+        if (!isExitingState)
+        {
+            if (distance > enemy.desiredDistanceToPlayer)
+                enemy.MoveController.Chase();
+            else
+                enemy.MoveController.ZeroVelocityX();
+        }
     }
 
     public override void TransitionConditions()
@@ -36,6 +42,11 @@ public class EnemyChaseState : EnemyGroundedState
         if (enemy.Target.Target == null)
         {
             stateMachine.ChangeState(enemy.SearchState);
+        }
+
+        if (enemy.AttackController.IsAttacking)
+        {
+            stateMachine.ChangeState(enemy.AttackState);
         }
     }
 }

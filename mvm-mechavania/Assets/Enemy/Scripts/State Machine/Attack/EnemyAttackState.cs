@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : EnemyGroundedState
+public class EnemyAttackState : EnemyState
 {
-    public EnemyIdleState(Enemy theEnemy, EnemyStateMachine theStateMachine, string theAnimBoolName) : base(theEnemy, theStateMachine, theAnimBoolName)
+    public EnemyAttackState(Enemy theEnemy, EnemyStateMachine theStateMachine, string theAnimBoolName) : base(theEnemy, theStateMachine, theAnimBoolName)
     {
     }
 
-    public override void Enter()
+    public override void Exit()
     {
         base.Enter();
 
@@ -17,18 +17,17 @@ public class EnemyIdleState : EnemyGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        //enemy.MoveController.ZeroVelocityX();
     }
 
     public override void TransitionConditions()
     {
         base.TransitionConditions();
 
-
-        if (enemy.Target.Target != null)
+        if (!enemy.AttackController.IsAttacking)
         {
             stateMachine.ChangeState(enemy.ChaseState);
         }
     }
+
+    // end
 }

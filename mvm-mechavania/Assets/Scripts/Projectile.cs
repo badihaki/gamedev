@@ -33,7 +33,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision);
         if (collision.tag != gameObject.tag)
         {
         var hurtable = collision.GetComponent<IDamageable>();

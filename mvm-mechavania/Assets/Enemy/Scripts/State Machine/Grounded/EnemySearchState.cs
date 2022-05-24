@@ -19,10 +19,11 @@ public class EnemySearchState : EnemyGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Time.time > startTime + 0.65f)
-        {
-            Searching();
-        }
+        if(!isExitingState)
+            if (Time.time > startTime + 0.65f)
+                {
+                    Searching();
+                }
 
     }
 
@@ -42,6 +43,10 @@ public class EnemySearchState : EnemyGroundedState
 
         if (enemy.Target.TargetTimer <= 0)
             stateMachine.ChangeState(enemy.IdleState);
+        if (enemy.Target.Target != null)
+        {
+            stateMachine.ChangeState(enemy.ChaseState);
+        }
     }
 
     public override void Exit()

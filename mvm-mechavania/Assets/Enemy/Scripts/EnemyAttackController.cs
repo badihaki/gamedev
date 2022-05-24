@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyAttackController : MonoBehaviour
 {
-    private Enemy enemy;
+    [SerializeField]protected Enemy enemy;
 
     [SerializeField] private float maxAttackTime;
     [SerializeField] private float minAttackTime;
     [SerializeField] private float attackTimer;
-    public bool IsAttacking { get; private set; }
+    public bool IsAttacking { get; protected set; }
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         enemy = GetComponent<Enemy>();
         
@@ -41,6 +41,10 @@ public class EnemyAttackController : MonoBehaviour
         attackTimer = Random.Range(minAttackTime, maxAttackTime);
     }
 
+    public virtual void Attack()
+    {
+
+    }
 
     // end
 }
