@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public FXHolder FX { get; private set; }
     public Animator Anim { get; private set; }
     public EnemyMoveScript MoveController { get; private set; }
+    public EnemyAttackController AttackController { get; private set; }
 
     // Stats
     #region Stats
@@ -30,10 +31,10 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemyIdleState IdleState { get; private set; }
     public EnemyChaseState ChaseState { get; private set; }
     public EnemySearchState SearchState { get; private set; }
-    
+
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Health = GetComponent<Health>();
         FX = GetComponent<FXHolder>();
@@ -42,17 +43,18 @@ public class Enemy : MonoBehaviour, IDamageable
         SetStats();
 
         MoveController = GetComponent<EnemyMoveScript>();
+        AttackController = GetComponent<EnemyAttackController>();
 
         StateMachineInit();
     }
 
-    private void SetStats()
+    public virtual void SetStats()
     {
         desiredDistanceToPlayer = UnityEngine.Random.Range(distMin, distMax);
         speed = UnityEngine.Random.Range(speedMin, speedMax);
     }
 
-    private void StateMachineInit()
+    public virtual void StateMachineInit()
     {
         StateMachine = new EnemyStateMachine();
         IdleState = new EnemyIdleState(this, StateMachine, "idle");
@@ -63,11 +65,11 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
     }
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }

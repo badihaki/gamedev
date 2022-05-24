@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1418599802363783075}
   - component: {fileID: 1418599802363783074}
-  - component: {fileID: 1418599802363783086}
+  - component: {fileID: 4372131514670308109}
+  - component: {fileID: 5513178361745718815}
   - component: {fileID: 1418599802363783076}
   - component: {fileID: 1418599802363783072}
   - component: {fileID: 1418599802363783087}
@@ -55,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
---- !u!114 &1418599802363783086
+--- !u!114 &4372131514670308109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,22 +65,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1418599802363783077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a786a84f380562049ae6977d6a8d5712, type: 3}
+  m_Script: {fileID: 11500000, guid: 7792b76975687d444bc7ee743882bd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMin: 1
-  speedMax: 2
-  speed: 1.35
+  speedMin: 1.15
+  speedMax: 1.85
+  speed: 0
   attack: 1
-  waitSearchTime: 4.35
+  waitSearchTime: 3.75
   distMin: 0.85
-  distMax: 1.35
-  desiredDistanceToPlayer: 0.85
+  distMax: 1.85
+  desiredDistanceToPlayer: 0
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
   extraHeightDistance: 0
   boundary: {fileID: 1418599803496054509}
+--- !u!114 &5513178361745718815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418599802363783077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0610b7495bd60a4daede225ed87a7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAttackTime: 1.5
+  minAttackTime: 2.2
+  attackTimer: 0
 --- !u!212 &1418599802363783076
 SpriteRenderer:
   m_ObjectHideFlags: 0
