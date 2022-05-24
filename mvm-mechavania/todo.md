@@ -23,6 +23,7 @@
 	- Room functionality
 - Build Out Player Abilities
 	- Double Jump
+	- Grenades
 - Build out Mech Abilities
 	- Attack
 		- Fists
@@ -35,5 +36,3 @@
 - Disembarking doesn't do a small hop, only blips player back into world
 
 - Need to deactivate mech's interator component
-
-- Attack animations dont work as intended???

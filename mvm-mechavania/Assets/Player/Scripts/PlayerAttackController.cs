@@ -23,7 +23,8 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageTimer();
+        if(player.AbilityUnlocks._AquiredGun)
+            ManageTimer();
     }
 
     private void ManageAnim()
@@ -45,11 +46,16 @@ public class PlayerAttackController : MonoBehaviour
 
     public void Attack()
     {
-        if (attackTimer <= 0)
+        if (player.AbilityUnlocks._AquiredGun)
         {
-            GameObject proj = Instantiate(projectile, gunPosition.position, transform.rotation);
-            proj.GetComponent<Projectile>().facingRight = GetComponent<Player>().MoveController.FacingRight;
-            attackTimer = atkTime;
+            if (attackTimer <= 0)
+            {
+                GameObject proj = Instantiate(projectile, gunPosition.position, transform.rotation);
+                proj.GetComponent<Projectile>().facingRight = GetComponent<Player>().MoveController.FacingRight;
+                attackTimer = atkTime;
+            }
         }
     }
+
+    // end
 }

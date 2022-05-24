@@ -1362,10 +1362,11 @@ GameObject:
   - component: {fileID: 1877833937}
   - component: {fileID: 1877833945}
   - component: {fileID: 1877833940}
+  - component: {fileID: 1877833947}
   - component: {fileID: 1877833943}
   - component: {fileID: 1877833949}
-  - component: {fileID: 1877833947}
   - component: {fileID: 1877833948}
+  - component: {fileID: 1877833950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1694,6 +1695,22 @@ MonoBehaviour:
   gunPosition: {fileID: 1790473534}
   atkTime: 0.85
   attackTimer: 0
+--- !u!114 &1877833950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877833936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb598b9f58b9d4c917a43a5c30fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AquiredGun: 0
+  _AquiredAI: 0
+  _AquiredBoostJump: 0
+  _AquiredGrenades: 0
 --- !u!1 &1887376417
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     public int attack;
@@ -26,12 +26,14 @@ public class Player : MonoBehaviour
     //
     // Components
     #region Components
+    public Health Health { get; private set; }
     public Animator Anim { get; private set; }
     public PlayerControls Controls { get; private set; }
     public PlayerMoveController MoveController { get; private set; }
     public PlayerAttackController AttackController { get; private set; }
     private CapsuleCollider2D boundary;
     public Activator Activator { get; private set; }
+    public PlayerAbilities AbilityUnlocks { get; private set; }
     private CinemachineVirtualCamera _CamController;
     #endregion
 
@@ -53,27 +55,16 @@ public class Player : MonoBehaviour
     }
     public void StartGame()
     {
-        if (GetComponent<Animator>() != null)
-        {
-            Anim = GetComponent<Animator>();
-        }
+        Anim = GetComponent<Animator>();
         
-        if (GetComponent<PlayerControls>() != null)
-        {
-            Controls = GetComponent<PlayerControls>();
-        }
+        Controls = GetComponent<PlayerControls>();
 
-        if (GetComponent<PlayerMoveController>() != null)
-        {
-            MoveController = GetComponent<PlayerMoveController>();
-            MoveController.InitController();
-        }
-        if (GetComponentInChildren<CapsuleCollider2D>() != null)
-        {
-            boundary = GetComponentInChildren<CapsuleCollider2D>();
-        }
+        MoveController = GetComponent<PlayerMoveController>();
+        MoveController.InitController();
+        boundary = GetComponentInChildren<CapsuleCollider2D>();
         Activator = GetComponentInChildren<Activator>();
         AttackController = GetComponent<PlayerAttackController>();
+        AbilityUnlocks = GetComponent<PlayerAbilities>();
         _CamController = GameObject.Find("Cam-Player").GetComponent<CinemachineVirtualCamera>();
 
         InitializePlayerState();
@@ -128,6 +119,11 @@ public class Player : MonoBehaviour
     public void SetMechCam()
     {
         _CamController.Priority = 8;
+    }
+
+    public void Damage(int dmg, int direction, Vector2 pushBack)
+    {
+        
     }
     // end of the line
 }
