@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,17 @@ public class PlayerControls : MonoBehaviour
     {
         JumpButton = false;
     }
+
+    public void UseCinemaButton()
+    {
+        if (AttackButton)
+        {
+            AttackButton = false;
+        }
+        if (JumpButton)
+            UseJump();
+    }
+
     public bool AttackButton { get; private set; }
     public void GetAttackInput(InputAction.CallbackContext button)
     {

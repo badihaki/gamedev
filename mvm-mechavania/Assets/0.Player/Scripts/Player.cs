@@ -47,6 +47,7 @@ public class Player : MonoBehaviour, IDamageable
     public PlayerJumpState JumpState { get; private set; }
     public PlayerMechState MechState { get; private set; }
     public PlayerLeaveMechState LeaveMechState { get; private set; }
+    public PlayerCinemaState CinemaState { get; private set; }
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour, IDamageable
         InAirState = new PlayerInAirState(this, StateMachine, "inAir");
         MechState = new PlayerMechState(this, StateMachine, "mech");
         LeaveMechState = new PlayerLeaveMechState(this, StateMachine, "inAir");
+        CinemaState = new PlayerCinemaState(this, StateMachine, "cinema");
     }
 
     // Update is called once per frame

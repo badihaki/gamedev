@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
     public DialogueManager DialogueManager { get; private set; }
     public GameObject UI { get; private set; }
     public GameObject DialogueUI { get; private set; }
+    public GameObject CinematicUI { get; private set; }
     
 
     // Start is called before the first frame update
@@ -17,9 +18,11 @@ public class GM : MonoBehaviour
 
         DialogueManager = GetComponent<DialogueManager>();
 
-        UI = GameObject.Find("UI");
+        UI = transform.Find("UI").gameObject;
         DialogueUI = UI.transform.Find("Dialogue").gameObject;
         DialogueUI.SetActive(false);
+        CinematicUI = UI.transform.Find("Cinematic").gameObject;
+        CinematicUI.SetActive(false);
     }
 
     // Update is called once per frame

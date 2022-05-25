@@ -21,15 +21,26 @@ public class DialogueManager : MonoBehaviour
         gameMaster.DialogueUI.SetActive(true);
         CurrentDialogue = newDialogue;
         LoadDialogue();
-        // change player state to cinematic
-        // gameMaster.Player.StateMachine.ChangeState(gameMaster.Player.CinemaState);
+        gameMaster.Player.StateMachine.ChangeState(gameMaster.Player.CinemaState);
+    }
+
+    private void ResetUI()
+    {
+        gameMaster.CinematicUI.GetComponent<Image>().sprite = null;
+        gameMaster.CinematicUI.SetActive(false);
+
+        gameMaster.DialogueUI.transform.Find("Speaker").GetComponent<Image>().sprite = null;
+        gameMaster.DialogueUI.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = null;
     }
 
     private void LoadDialogue()
     {
+        ResetUI();
+
         if (CurrentDialogue.cinematic != null)
         {
-            gameMaster.DialogueUI.transform.Find("Cinematic").GetComponent<Image>().sprite = CurrentDialogue.cinematic;
+            gameMaster.CinematicUI.SetActive(true);
+            gameMaster.CinematicUI.GetComponent<Image>().sprite = CurrentDialogue.cinematic;
         }
         if (CurrentDialogue.speakerImage != null)
         {
@@ -54,6 +65,9 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        ResetUI();
+
+        gameMaster.DialogueUI.SetActive(false);
         CurrentDialogue = null;
         gameMaster.Player.StateMachine.ChangeState(gameMaster.Player.IdleState);
     }
