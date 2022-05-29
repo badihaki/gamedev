@@ -16,6 +16,10 @@ public class PlayerAttackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    public void Initialize()
+    {
         player = GetComponent<Player>();
         attackTimer = atkTime;
     }

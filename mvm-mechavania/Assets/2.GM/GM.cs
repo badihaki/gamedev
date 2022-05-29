@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GM : MonoBehaviour
 {
@@ -9,10 +10,21 @@ public class GM : MonoBehaviour
     public GameObject UI { get; private set; }
     public GameObject DialogueUI { get; private set; }
     public GameObject CinematicUI { get; private set; }
-    
+    private GameObject PlayerUI;
+    public TextMeshProUGUI PlayerHealth { get; private set; }
+
+    // awake is called before Start
+    private void Awake()
+    {
+        Initialize();
+    }
 
     // Start is called before the first frame update
     void Start()
+    {
+    }
+
+    private void Initialize()
     {
         Player = GameObject.Find("Player").GetComponent<Player>();
 
@@ -23,6 +35,10 @@ public class GM : MonoBehaviour
         DialogueUI.SetActive(false);
         CinematicUI = UI.transform.Find("Cinematic").gameObject;
         CinematicUI.SetActive(false);
+        PlayerUI = UI.transform.Find("Player").gameObject;
+        PlayerHealth = PlayerUI.transform.Find("Health").GetComponent<TextMeshProUGUI>();
+
+        Player.StartGame();
     }
 
     // Update is called once per frame

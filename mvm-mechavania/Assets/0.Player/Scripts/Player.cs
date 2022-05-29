@@ -34,6 +34,7 @@ public class Player : MonoBehaviour, IDamageable
     private CapsuleCollider2D boundary;
     public Activator Activator { get; private set; }
     public PlayerAbilities AbilityUnlocks { get; private set; }
+    private PlayerUI _PlayerUI;
     private CinemachineVirtualCamera _CamController;
     #endregion
 
@@ -52,21 +53,33 @@ public class Player : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
     }
     public void StartGame()
     {
+        Health = GetComponent<Health>();
+        Health.Initialize();
+        // animator
         Anim = GetComponent<Animator>();
-        
+        // controls
         Controls = GetComponent<PlayerControls>();
-
+        // movement
         MoveController = GetComponent<PlayerMoveController>();
         MoveController.InitController();
+        // collider
         boundary = GetComponentInChildren<CapsuleCollider2D>();
+        // actuvatir
         Activator = GetComponentInChildren<Activator>();
+        Activator.Initialize();
+        // attack
         AttackController = GetComponent<PlayerAttackController>();
+        AttackController.Initialize();
+        // abilities
         AbilityUnlocks = GetComponent<PlayerAbilities>();
+        // camera
         _CamController = GameObject.Find("Cam-Player").GetComponent<CinemachineVirtualCamera>();
+        // ui
+        _PlayerUI = GetComponent<PlayerUI>();
+        _PlayerUI.Initialize();
 
         InitializePlayerState();
         StateMachine.Initialize(IdleState);

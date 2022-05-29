@@ -11,7 +11,7 @@ public class Activator : MonoBehaviour
     }
     private Player player;
 
-    private void Start()
+    public void Initialize()
     {
         player = GetComponentInParent<Player>();
         CanActivate = true;
