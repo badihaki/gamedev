@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PlayerUI : MonoBehaviour
@@ -18,12 +17,11 @@ public class PlayerUI : MonoBehaviour
     {
         player = GetComponent<Player>();
         healthUI = GameObject.Find("Game Master").GetComponent<GM>().PlayerHealth;
-        healthUI.text = player.Health.CurrentHealth.ToString(); 
+        SyncHealthUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SyncHealthUI()
     {
-        
+        healthUI.text = player.Health.CurrentHealth.ToString();
     }
 }

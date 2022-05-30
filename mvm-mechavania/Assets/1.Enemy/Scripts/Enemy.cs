@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         Health = GetComponent<Health>();
+        Health.Initialize();
         FX = GetComponent<FXHolder>();
         Target = GetComponent<EnemyTarget>();
         Anim = GetComponent<Animator>();
@@ -78,6 +79,8 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Health.TakeHealth(dmg);
         Instantiate(FX.hitEffect, transform.position, transform.rotation);
+        Vector2 push = new Vector2(pushBack.x * direction, pushBack.y);
+        MoveController.Bump(push);
 
         if (Health.CurrentHealth <= 0)
         {

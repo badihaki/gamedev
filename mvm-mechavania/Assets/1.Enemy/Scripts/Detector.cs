@@ -13,7 +13,7 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && collision.GetComponent<Player>() != null)
         {
             enemy.Target.GetTarget(collision.transform);
         }
@@ -21,7 +21,7 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && collision.GetComponent<Player>() != null)
         {
             enemy.Target.GetTarget(collision.transform);
         }

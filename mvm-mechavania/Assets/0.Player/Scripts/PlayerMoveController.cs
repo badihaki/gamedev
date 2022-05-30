@@ -56,4 +56,9 @@ public class PlayerMoveController : MonoBehaviour
     {
         controller.AddForce(new Vector2(Random.Range(0.5f, 1.75f), player.jump));
     }
+
+    public void Bump(Vector2 pushBack)
+    {
+        controller.AddForce(pushBack);
+    }
 }

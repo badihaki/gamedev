@@ -36,6 +36,7 @@ public class Player : MonoBehaviour, IDamageable
     public PlayerAbilities AbilityUnlocks { get; private set; }
     private PlayerUI _PlayerUI;
     private CinemachineVirtualCamera _CamController;
+    private FXHolder _FX;
     #endregion
 
     //
@@ -80,6 +81,9 @@ public class Player : MonoBehaviour, IDamageable
         // ui
         _PlayerUI = GetComponent<PlayerUI>();
         _PlayerUI.Initialize();
+        // FX
+        _FX = GetComponent<FXHolder>();
+
 
         InitializePlayerState();
         StateMachine.Initialize(IdleState);
@@ -138,7 +142,11 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage(int dmg, int direction, Vector2 pushBack)
     {
-        
+        Health.TakeHealth(dmg);
+        _PlayerUI.SyncHealthUI();
+        Instantiate(_FX.hitEffect, transform.position, transform.rotation);
+        Vector2 push = new Vector2(pushBack.x * direction, pushBack.y);
+        MoveController.Bump(push);
     }
     // end of the line
 }

@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue newDialogue)
     {
         gameMaster.DialogueUI.SetActive(true);
+        gameMaster.PlayerUI.SetActive(false);
         CurrentDialogue = newDialogue;
         LoadDialogue();
         gameMaster.Player.StateMachine.ChangeState(gameMaster.Player.CinemaState);
@@ -68,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         ResetUI();
 
         gameMaster.DialogueUI.SetActive(false);
+        gameMaster.PlayerUI.SetActive(true);
         CurrentDialogue = null;
         gameMaster.Player.StateMachine.ChangeState(gameMaster.Player.IdleState);
     }

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 10
+  speed: 6
   force: {x: 2, y: 1}
-  destroyTime: 1.25
+  destroyTime: 3.85
   facingRight: 1

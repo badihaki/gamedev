@@ -10,7 +10,7 @@ public class GM : MonoBehaviour
     public GameObject UI { get; private set; }
     public GameObject DialogueUI { get; private set; }
     public GameObject CinematicUI { get; private set; }
-    private GameObject PlayerUI;
+    public GameObject PlayerUI { get; private set; }
     public TextMeshProUGUI PlayerHealth { get; private set; }
 
     // awake is called before Start

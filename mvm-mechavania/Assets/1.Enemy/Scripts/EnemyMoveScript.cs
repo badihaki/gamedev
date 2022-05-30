@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,5 +70,11 @@ public class EnemyMoveScript : MonoBehaviour
         gameObject.transform.localScale = currentScale;
 
         FacingRight = !FacingRight;
+    }
+
+    public void Bump(Vector2 pushBack)
+    {
+        Debug.Log(pushBack);
+        controller.AddForce(pushBack, ForceMode2D.Impulse);
     }
 }
