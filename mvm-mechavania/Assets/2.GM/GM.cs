@@ -16,7 +16,7 @@ public class GM : MonoBehaviour
     // awake is called before Start
     private void Awake()
     {
-        Initialize();
+        // Initialize();
     }
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class GM : MonoBehaviour
     {
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         Player = GameObject.Find("Player").GetComponent<Player>();
 

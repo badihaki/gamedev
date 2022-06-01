@@ -14,6 +14,7 @@ public class PlayerJumpState : PlayerAbilityState
     {
         base.Enter();
         player.MoveController.Jump();
+        Debug.Log("Jumpin");
     }
 
     public override void Exit()
