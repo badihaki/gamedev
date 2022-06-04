@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] private bool isActive;
+    [SerializeField] private GameObject _Grid;
+    [SerializeField] private GameObject _Coliders;
+    [SerializeField] private GameObject _Props;
+    [SerializeField] private GameObject _EnemySpawns;
 
+    private void Awake()
+    {
+        foreach (Door door in GetComponentsInChildren<Door>())
+        {
+            door.InitDoor();
+        }
+        DeactivateRoom();
+    }
     public void ActivateRoom()
     {
-        isActive = true;
+        _Grid.SetActive(true);
+        _Coliders.SetActive(true);
+        _Props.SetActive(true);
+        _EnemySpawns.SetActive(true);
     }
 
     public void DeactivateRoom()
     {
-        isActive = false;
+        _Grid.SetActive(false);
+        _Coliders.SetActive(false);
+        _Props.SetActive(false);
+        _EnemySpawns.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //end
 }

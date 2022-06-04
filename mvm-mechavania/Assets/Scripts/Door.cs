@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public Room Room { get; private set; }
     public Door _ConnectedDoor;
     public Transform playerSpawnPoint;
     private bool isOpen;
     private Animator anim;
 
+    public void InitDoor()
+    {
+        anim = GetComponent<Animator>();
+        Room = GetComponentInParent<Room>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -41,7 +48,9 @@ public class Door : MonoBehaviour
 
     public void GoToRoom(Player player)
     {
+        _ConnectedDoor.Room.ActivateRoom();
         player.transform.position = _ConnectedDoor.playerSpawnPoint.position;
+        Room.DeactivateRoom();
     }
 
 }

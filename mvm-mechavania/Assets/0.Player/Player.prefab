@@ -65,7 +65,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  extraHeightDistance: 0
+  extraHeightDistance: 0.01
 --- !u!114 &8525678145087035694
 MonoBehaviour:
   m_ObjectHideFlags: 0

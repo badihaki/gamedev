@@ -17,6 +17,7 @@ public class PlayerCinemaState : PlayerState
         base.Enter();
 
         gameMaster = GameObject.Find("Game Master").GetComponent<GM>();
+        player.MoveController.Move(0);
     }
 
     public override void LogicUpdate()
