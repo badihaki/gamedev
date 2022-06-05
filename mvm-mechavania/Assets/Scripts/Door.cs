@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     public Room Room { get; private set; }
     public Door _ConnectedDoor;
+    public bool doorIsWorking;
+    public GameObject boundary;
     public Transform playerSpawnPoint;
     private bool isOpen;
     private Animator anim;
@@ -19,30 +21,53 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (boundary == null)
+        {
+            doorIsWorking = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("isOpen", isOpen);
+        if (doorIsWorking)
+        {
+            anim.SetBool("isOpen", isOpen);
+            if(boundary.activeSelf == true)
+            {
+                boundary.SetActive(false);
+            }
+        }
+        else
+        {
+            if (boundary.activeSelf == false)
+            {
+                boundary.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<Player>() != null)
+        if (doorIsWorking)
         {
-            Debug.Log("player entered");
-            isOpen = true;
-        }        
+            if(collision.gameObject.GetComponent<Player>() != null)
+            {
+                Debug.Log("player entered");
+                isOpen = true;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Player>() != null)
+        if (doorIsWorking)
         {
-            Debug.Log("player entered");
-            isOpen = false;
+            if (collision.gameObject.GetComponent<Player>() != null)
+            {
+                Debug.Log("player entered");
+                isOpen = false;
+            }
         }
     }
 
