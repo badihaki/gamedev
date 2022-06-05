@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,26 @@ public class StartGame : MonoBehaviour
         gameMaster = GameObject.Find("Game Master").GetComponent<GM>();
 
         gameMaster.Initialize();
-        startingRoom.ActivateRoom();
 
         player = GameObject.Find("Player").GetComponent<Player>();
         player.transform.position = transform.position;
-        if(!testMode)
+        if (!testMode)
+        {
+            startingRoom.ActivateRoom();
             gameMaster.DialogueManager.StartDialogue(startingDialogue);
+        }
+        else
+        {
+            InitiateUnlocks();
+        }
+    }
+
+    private void InitiateUnlocks()
+    {
+        player.AbilityUnlocks._AquiredGun = true;
+        player.AbilityUnlocks._AquiredGrenades = true;
+        player.AbilityUnlocks._AquiredBoostJump = true;
+        player.AbilityUnlocks._AquiredAI = true;
     }
 
     private void Update()

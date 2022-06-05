@@ -8,7 +8,7 @@ public class PlayerJumpState : PlayerAbilityState
     {
     }
     protected int xInput;
-    protected bool attackButton;
+    protected bool attackInput;
 
     public override void Enter()
     {
@@ -29,6 +29,7 @@ public class PlayerJumpState : PlayerAbilityState
         xInput = player.Controls.Xinput;
         // attackButton = player.Controls.FireButton;
         player.MoveController.Move(xInput);
+        Attack();
     }
 
     public override void PhysicsUpdate()
@@ -36,6 +37,15 @@ public class PlayerJumpState : PlayerAbilityState
         base.PhysicsUpdate();
         
         // make sure we can move whilest jumping
+    }
+
+    private void Attack()
+    {
+        if (attackInput)
+        {
+            // attack
+            player.AttackController.Attack();
+        }
     }
 
     public override void TransitionConditions()

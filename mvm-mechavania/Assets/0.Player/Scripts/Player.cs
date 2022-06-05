@@ -22,6 +22,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         CurrentInteractableObj = null;
     }
+    [SerializeField] private int aim;
 
     //
     // Components
@@ -104,6 +105,8 @@ public class Player : MonoBehaviour, IDamageable
     void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
+        aim = Controls.Yinput;
+        Anim.SetInteger("aim", aim);
     }
     private void FixedUpdate()
     {
