@@ -21,7 +21,6 @@ public class GruntAttack : EnemyAttackController
 
     public override void Attack()
     {
-        base.Attack();
 
         GameObject proj = Instantiate(projectile, shootPoint.position, shootPoint.rotation);
         if (enemy.MoveController.FacingRight)
@@ -31,6 +30,8 @@ public class GruntAttack : EnemyAttackController
         else
             proj.GetComponent<Projectile>().facingRight = false;
 
-        ResetAttack();
+        base.Attack();
     }
+
+    // end
 }

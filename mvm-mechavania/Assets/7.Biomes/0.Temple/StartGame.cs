@@ -27,6 +27,8 @@ public class StartGame : MonoBehaviour
         }
         else
         {
+            if (startingRoom != null)
+                startingRoom.ActivateRoom();
             InitiateUnlocks();
         }
     }

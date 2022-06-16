@@ -43,7 +43,6 @@ public class EnemyChaseState : EnemyGroundedState
         {
             stateMachine.ChangeState(enemy.SearchState);
         }
-
         if (enemy.AttackController.IsAttacking)
         {
             stateMachine.ChangeState(enemy.AttackState);

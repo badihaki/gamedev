@@ -62,6 +62,7 @@ MonoBehaviour:
   attack: 0
   speed: 3
   jump: 10
+  aim: 0
   groundLayers:
     serializedVersion: 2
     m_Bits: 64

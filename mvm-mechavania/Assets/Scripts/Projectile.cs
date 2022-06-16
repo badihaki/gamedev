@@ -10,9 +10,12 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float destroyTime;
     private Rigidbody2D controller;
     public bool facingRight = true;
+    [SerializeField] public Vector2 direction;
+
     // Start is called before the first frame update
     void Start()
     {
+        direction = new Vector2(transform.right.x, transform.right.y);
         Destroy(this.gameObject, destroyTime);
         controller = GetComponent<Rigidbody2D>();
     }
@@ -25,10 +28,16 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*
         if(facingRight)
             controller.velocity = Vector2.right * speed;
         else
             controller.velocity = Vector2.left * speed;
+        */
+        if (facingRight)
+            controller.velocity = direction * speed;
+        else
+            controller.velocity = -direction * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

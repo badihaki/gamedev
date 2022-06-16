@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
     public bool doorIsWorking;
     public GameObject boundary;
     public Transform playerSpawnPoint;
-    private bool isOpen;
+    public bool isOpen;
     private Animator anim;
 
     public void InitDoor()

@@ -10,6 +10,7 @@ public class EnemyAttackController : MonoBehaviour
     [SerializeField] private float minAttackTime;
     [SerializeField] private float attackTimer;
     public bool IsAttacking { get; protected set; }
+    public bool amIattacking;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -23,15 +24,19 @@ public class EnemyAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        amIattacking = IsAttacking;
     }
 
     public void HandleAttackTimer()
     {
-        attackTimer -= Time.deltaTime;
-        if (attackTimer < 0)
+        if (attackTimer > 0)
         {
-            attackTimer = 0;
+            attackTimer -= Time.deltaTime;
+            IsAttacking = false;
+
+        }
+        else if (attackTimer < 0)
+        {
             IsAttacking = true;
         }
     }
@@ -43,7 +48,8 @@ public class EnemyAttackController : MonoBehaviour
 
     public virtual void Attack()
     {
-
+        print("resetting attack");
+        ResetAttack();
     }
 
     // end

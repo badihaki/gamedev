@@ -23,7 +23,7 @@ public class EnemyAttackState : EnemyState
     {
         base.TransitionConditions();
 
-        if (!enemy.AttackController.IsAttacking)
+        if (enemy.AttackController.IsAttacking == false)
         {
             stateMachine.ChangeState(enemy.ChaseState);
         }

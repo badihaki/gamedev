@@ -7,14 +7,13 @@ public class DoorSwitch : MonoBehaviour
     Door door;
     public Sprite offState;
     public Sprite onState;
-    public GameObject boundary;
 
     // Start is called before the first frame update
     void Start()
     {
         door = GetComponentInParent<Door>();
         GetComponent<SpriteRenderer>().sprite = offState;
-        if (boundary == null)
+        if (door.boundary == null)
         {
             GetComponent<SpriteRenderer>().sprite = onState;
         }
@@ -32,7 +31,10 @@ public class DoorSwitch : MonoBehaviour
         {
             door.doorIsWorking = true;
             GetComponent<SpriteRenderer>().sprite = onState;
-            Destroy(boundary);
+            Destroy(collision.gameObject);
+            Destroy(door.boundary);
+            door.boundary = null;
+            door.isOpen = true;
         }
     }
 }

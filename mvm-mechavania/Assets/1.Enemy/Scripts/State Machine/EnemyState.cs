@@ -36,8 +36,8 @@ public class EnemyState
     }
     public virtual void Exit()
     {
-        enemy.Anim.SetBool(animBoolName, false);
         isExitingState = true;
+        enemy.Anim.SetBool(animBoolName, false);
     }
     public virtual void LogicUpdate()
     {

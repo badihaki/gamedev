@@ -54,7 +54,7 @@ public class PlayerAttackController : MonoBehaviour
         {
             if (attackTimer <= 0)
             {
-                GameObject proj = Instantiate(projectile, gunPosition.position, transform.rotation);
+                GameObject proj = Instantiate(projectile, gunPosition.position, gunPosition.rotation);
                 proj.GetComponent<Projectile>().facingRight = GetComponent<Player>().MoveController.FacingRight;
                 attackTimer = atkTime;
             }

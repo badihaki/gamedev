@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float speedMax;
     public float speed;
     public int attack;
+    public Vector2 attackForce;
     public float waitSearchTime;
     [SerializeField] float distMin;
     [SerializeField] float distMax;
@@ -115,4 +116,10 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     #endregion
 
+    #region Anim
+    public virtual void EndAnimation()
+    {
+        StateMachine.CurrentState.AnimationFinishTrigger();
+    }
+    #endregion
 }

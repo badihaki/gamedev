@@ -52,8 +52,8 @@ public class EnemySearchState : EnemyGroundedState
     public override void Exit()
     {
         base.Exit();
-
-        enemy.Target.ResetTargetComponent();
+        if(enemy.Target.Target==null)
+            enemy.Target.ResetTargetComponent();
     }
 
     // end
